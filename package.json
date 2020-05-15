@@ -8,12 +8,18 @@
   "private": true,
   "scripts": {
     "test": "mocha",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "stylelint */**.scss"
   },
   "devDependencies": {
     "mocha": "^7.1.2",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
-    "sass-true": "^5.0.0"
+    "sass-true": "^5.0.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.17.2"
   }
 }
