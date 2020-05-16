@@ -1,4 +1,4 @@
-# baseURL = "https://lkummer.github.io/break/"
+baseURL = "https://lkummer.github.io/break/"
 title = "Break SCSS"
 languageCode = "en"
 DefaultContentLanguage = "en"
