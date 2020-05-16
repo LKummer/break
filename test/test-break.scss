@@ -1,6 +1,6 @@
 @import 'true';
 
-@import '../src/breakpoints.scss';
+@import '../src/break';
 
 @include describe('Breakpoint map conversion') {
   @include it('Converts to the correct structure') {
