@@ -1,0 +1,97 @@
+// Converts a map of lower breakpoints to a breakpoints map usable by other
+// mixins.
+// Converts from ('small': none, 'large': 800px) to:
+// (
+//   'small': ('lower': none, 'upper': 800px),
+//   'large': ('lower': 800px, 'upper': none)
+// )
+@function create-breakpoints($lower-breakpoints) {
+  $length: length($lower-breakpoints);
+  $values: map-values($lower-breakpoints);
+  // The last breakpoint is handled first, as it is a special case.
+  $last-key: nth(nth($lower-breakpoints, $length), 1);
+  $last: nth($values, length($values));
+  $result: (
+    $last-key: (
+      'lower': $last,
+      'upper': null
+    )
+  );
+  // The loop does not iterate over the last breakpoint.
+  @for $index from $length - 1 through 1 {
+    $current-key: nth(nth($lower-breakpoints, $index), 1);
+    $current: nth($values, $index);
+    $next: nth($values, $index + 1);
+    $result: map-merge(
+      (
+        $current-key: (
+          'lower': $current,
+          'upper': $next
+        )
+      ),
+      $result
+    );
+  }
+  @return $result;
+}
+
+@function lower-breakpoint($key, $breakpoints) {
+  @return map-get(map-get($breakpoints, $key), 'lower');
+}
+
+@function upper-breakpoint($key, $breakpoints) {
+  @return map-get(map-get($breakpoints, $key), 'upper');
+}
+
+// Media query enabled up to the upper bound of the breakpoint.
+@mixin breakpoint-down($key, $breakpoints) {
+  $upper: upper-breakpoint($key, $breakpoints);
+  @if $upper {
+    @media (max-width: $upper) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled over the lower bound of the breakpoint.
+@mixin breakpoint-up($key, $breakpoints) {
+  $lower: lower-breakpoint($key, $breakpoints);
+  @if $lower {
+    @media (min-width: $lower) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled between the lower bound of the lower breakpoint and the
+// upper bound of the upper breakpoint.
+@mixin breakpoint($lower-key, $upper-key, $breakpoints) {
+  $lower: lower-breakpoint($lower-key, $breakpoints);
+  $upper: upper-breakpoint($upper-key, $breakpoints);
+  @if $lower and $upper {
+    @media (min-width: $lower) and (max-width: $upper) {
+      @content;
+    }
+  } @else if $lower {
+    @include breakpoint-up($lower-key, $breakpoints) {
+      @content;
+    }
+  } @else if $upper {
+    @include breakpoint-down($upper-key, $breakpoints) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled between the bounds of a single breakpoint.
+@mixin breakpoint-only($key, $breakpoints) {
+  @include breakpoint($key, $key, $breakpoints) {
+    @content;
+  }
+}

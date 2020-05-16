@@ -1,0 +1,103 @@
+@import 'true';
+
+@import '../src/breakpoints.scss';
+
+@include describe('Breakpoint map conversion') {
+  @include it('Converts to the correct structure') {
+    $breakpoints: create-breakpoints(
+      (
+        'small': null,
+        'medium': 400px,
+        'large': 800px
+      )
+    );
+    $expected: (
+      'small': (
+        'lower': null,
+        'upper': 400px
+      ),
+      'medium': (
+        'lower': 400px,
+        'upper': 800px
+      ),
+      'large': (
+        'lower': 800px,
+        'upper': null
+      )
+    );
+    @include assert-equal($breakpoints, $expected);
+  }
+}
+
+$test-breakpoints: (
+  'small': (
+    'lower': null,
+    'upper': 400px
+  ),
+  'medium': (
+    'lower': 400px,
+    'upper': 800px
+  ),
+  'large': (
+    'lower': 800px,
+    'upper': null
+  )
+);
+
+@include describe('Breakpoint down') {
+  @include it('Creates the correct media query') {
+    @include assert {
+      @include output {
+        @include breakpoint-down('medium', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (max-width: 800px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Does not create a media query when not required') {
+    @include assert {
+      @include output {
+        @include breakpoint-down('large', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        background: red;
+      }
+    }
+  }
+}
+
+@include describe('Breakpoint up') {
+  @include it('Creates the correct media query') {
+    @include assert {
+      @include output {
+        @include breakpoint-up('medium', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (min-width: 400px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Does not create a media query when not required') {
+    @include assert {
+      @include output {
+        @include breakpoint-up('small', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        background: red;
+      }
+    }
+  }
+}
