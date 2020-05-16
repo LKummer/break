@@ -1,0 +1,70 @@
+# baseURL = "https://lkummer.github.io/break/"
+title = "Break SCSS"
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+theme = "lander"
+pygmentsUseClasses = true
+
+[params]
+  [params.footer]
+    title = "About Break"
+    text = """
+    After finding myself writing media query mixins for every project, I made a
+    module out of them.
+    Adding thorough unit testing, documentation and linting in the process.
+    """
+  [params.seo]
+    category = "Sass"
+    downloadURL = "#"
+    versionEnv = "npm_package_version"
+    operatingSystem = "Any"
+    isFree = true
+    license = "#"
+    defaultAuthor = "Break Contributors"
+  [params.colors]
+    primary-600 = "hsl(216, 40%, 32%)"
+    primary-500 = "hsl(216, 45%, 35%)"
+    primary-400 = "hsl(216, 55%, 40%)"
+    accent-600 = "hsl(27, 95%, 38%)"
+    accent-500 = "hsl(27, 90%, 42%)"
+    accent-400 = "hsl(27, 80%, 50%)"
+    background-900 = "hsl(216, 40%, 20%)"
+    background-200 = "hsl(216, 10%, 95%)"
+    background-100 = "hsl(216, 10%, 97%)"
+    text-900 = "hsla(0, 0%, 0%, 0.75)"
+    text-800 = "hsla(0, 0%, 0%, 0.7)"
+    text-700 = "hsla(0, 0%, 0%, 0.55)"
+    text-100 = "hsla(0, 0%, 100%, 0.9)"
+    highlight-text = "hsl(240, 35%, 99%)"
+    highlight-background = "hsl(240, 13%, 14%)"
+    highlight-comment = "hsl(250, 25%, 55%)"
+    highlight-special = "hsl(180, 75%, 55%)"
+    highlight-operator = "hsl(330, 95%, 75%)"
+    highlight-literal = "hsl(250, 80%, 70%)"
+
+[taxonomies]
+category = "categories"
+
+[privacy]
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+  [privacy.instagram]
+    disabled = false
+    simple = true
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+  [services.twitter]
+    disableInlineCSS = true

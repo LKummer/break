@@ -1,2 +1,5 @@
 # Modules should be downloaded using Yarn.
 node_modules/
+
+# Built files do not need to be commited.
+dist/

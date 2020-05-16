@@ -9,9 +9,11 @@
   "scripts": {
     "test": "mocha",
     "format": "prettier --write .",
-    "lint": "stylelint */**.scss"
+    "lint": "stylelint */**.scss",
+    "doc": "hugo --source doc --destination ../dist/doc"
   },
   "devDependencies": {
+    "hugo-bin": "^0.58.0",
     "mocha": "^7.1.2",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
