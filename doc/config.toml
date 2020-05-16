@@ -45,6 +45,11 @@ pygmentsUseClasses = true
     highlight-operator = "hsl(330, 95%, 75%)"
     highlight-literal = "hsl(250, 80%, 70%)"
 
+[menu]
+  [[menu.main]]
+    name = "Github"
+    url = "https://github.com/LKummer/break"
+
 [taxonomies]
 category = "categories"
 
