@@ -176,3 +176,22 @@ $test-breakpoints: (
     }
   }
 }
+
+@include describe('Breakpoint only') {
+  // The breakpoint-only mixin does not need to be thoroughly tested as it uses
+  // the breakpoint mixin internally.
+  @include it('Creates the correct media query') {
+    @include assert {
+      @include output {
+        @include breakpoint-only('medium', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (min-width: 400px) and (max-width: 800px) {
+          background: red;
+        }
+      }
+    }
+  }
+}
