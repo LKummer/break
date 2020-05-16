@@ -40,6 +40,10 @@ $test-breakpoints: (
   ),
   'large': (
     'lower': 800px,
+    'upper': 1200px
+  ),
+  'huge': (
+    'lower': 1200px,
     'upper': null
   )
 );
@@ -62,7 +66,7 @@ $test-breakpoints: (
   @include it('Does not create a media query when not required') {
     @include assert {
       @include output {
-        @include breakpoint-down('large', $test-breakpoints) {
+        @include breakpoint-down('huge', $test-breakpoints) {
           background: red;
         }
       }
@@ -92,6 +96,77 @@ $test-breakpoints: (
     @include assert {
       @include output {
         @include breakpoint-up('small', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        background: red;
+      }
+    }
+  }
+}
+
+@include describe('Breakpoint between') {
+  @include it('Works with range between two breakpoints') {
+    @include assert {
+      @include output {
+        @include breakpoint('medium', 'large', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (min-width: 400px) and (max-width: 1200px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Works with the same breakpoint for both bounds') {
+    @include assert {
+      @include output {
+        @include breakpoint('medium', 'medium', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (min-width: 400px) and (max-width: 800px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Omits lower bound when not required') {
+    @include assert {
+      @include output {
+        @include breakpoint('small', 'medium', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (max-width: 800px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Omits upper bound when not required') {
+    @include assert {
+      @include output {
+        @include breakpoint('large', 'huge', $test-breakpoints) {
+          background: red;
+        }
+      }
+      @include expect {
+        @media (min-width: 800px) {
+          background: red;
+        }
+      }
+    }
+  }
+  @include it('Omits both bounds when not required') {
+    @include assert {
+      @include output {
+        @include breakpoint('small', 'huge', $test-breakpoints) {
           background: red;
         }
       }
