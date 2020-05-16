@@ -1,7 +1,0 @@
-@import 'true';
-
-@include describe('True testing is working') {
-  @include it('Asserts correctly') {
-    @include assert-equal(true, true);
-  }
-}
