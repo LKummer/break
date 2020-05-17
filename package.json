@@ -2,7 +2,6 @@
   "name": "@lkummer/break",
   "version": "0.0.1",
   "description": "Sass mixins for systemized media queries",
-  "main": "index.js",
   "author": "Lior Kummer",
   "license": "MIT",
   "scripts": {
@@ -23,5 +22,9 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.17.2"
-  }
+  },
+  "files": [
+    "_index.scss",
+    "src/break.scss"
+  ]
 }
