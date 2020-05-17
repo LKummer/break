@@ -25,3 +25,24 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: 'gh-pages'
           FOLDER: 'dist/doc'
+  publish:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'actions/setup-node@v1'
+        with:
+          node-version: '12.x'
+      - name: 'Publish to NPM'
+        run: |
+          echo '//registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN}' > .npmrc
+          npm publish
+          rm .npmrc
+      - name: 'Create Github release'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
