@@ -21,7 +21,7 @@ introduction:
       text: 'This library does not make you download half of NPM'
 bottom:
   title: 'Get Started Now'
-  text: "Available on NPM"
+  text: 'Available on NPM'
   buttons:
     - label: 'Getting Started Guide'
       to: 'guide/getting-started/'
