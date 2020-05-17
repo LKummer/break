@@ -35,7 +35,7 @@ jobs:
       - name: 'Publish to NPM'
         run: |
           echo '//registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN}' > .npmrc
-          npm publish
+          npm publish --access public
           rm .npmrc
       - name: 'Create Github release'
         uses: actions/create-release@v1
