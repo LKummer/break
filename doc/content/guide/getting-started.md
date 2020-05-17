@@ -16,6 +16,9 @@ $ npm add --save-dev @lkummer/break
 $ yarn add --dev @lkummer/break
 ```
 
+Note the library is built for libsass. Node binding is available on NPM as
+`node-sass`.
+
 ## Importing Break
 
 Break can now be imported in SCSS files in your project.
