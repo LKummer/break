@@ -20,7 +20,7 @@
 Downloading Break Break is available on NPM and can be downloaded using NPM and Yarn.
 $ npm add --save-dev @lkummer/break $ yarn add --dev @lkummer/break Note the library is built for libsass. Node binding is available on NPM as node-sass.
 Importing Break Break can now be imported in SCSS files in your project.
-@import &amp;#39;break&amp;#39;; Basic Example Breakpoints are defined by a map which contains a key for each breakpoint.</description>
+@import &amp;#39;@lkummer/break&amp;#39;; Basic Example Breakpoints are defined by a map which contains a key for each breakpoint.</description>
     </item>
     
     <item>

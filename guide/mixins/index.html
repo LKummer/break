@@ -19,7 +19,7 @@
         "@type": "Person",
         "name": "Break Contributors"
     },
-    "wordCount":  415 ,
+    "wordCount":  423 ,
     "isAccessibleForFree": "true",
     "license": "#",
     "description": "Documentation of all the mixins available in the library."
@@ -165,7 +165,9 @@ value of this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
 <h4 id="example">Example</h4>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
+
+<span class="nc">.element</span> <span class="p">{</span>
   <span class="k">@include</span><span class="nd"> breakpoint</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="s1">&#39;large&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>
@@ -186,7 +188,9 @@ this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
 <h4 id="example-1">Example</h4>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
+
+<span class="nc">.element</span> <span class="p">{</span>
   <span class="k">@include</span><span class="nd"> breakpoint-down</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>
@@ -207,7 +211,9 @@ this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
 <h4 id="example-2">Example</h4>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
+
+<span class="nc">.element</span> <span class="p">{</span>
   <span class="k">@include</span><span class="nd"> breakpoint-up</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>
@@ -228,7 +234,9 @@ values of this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
 <h4 id="example-3">Example</h4>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
+
+<span class="nc">.element</span> <span class="p">{</span>
   <span class="k">@include</span><span class="nd"> breakpoint-only</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$test-breakpoints</span><span class="p">)</span> <span class="p">{</span>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>

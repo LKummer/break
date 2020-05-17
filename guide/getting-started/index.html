@@ -130,7 +130,7 @@ $ yarn add --dev @lkummer/break
 <code>node-sass</code>.</p>
 <h2 id="importing-break">Importing Break</h2>
 <p>Break can now be imported in SCSS files in your project.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;break&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
 </code></pre></div><h2 id="basic-example">Basic Example</h2>
 <p>Breakpoints are defined by a map which contains a key for each breakpoint.
 Each breakpoint is a map of <code>upper</code> and <code>lower</code> bounds.</p>
@@ -157,7 +157,7 @@ any screen size smaller than <code>small</code>.</p>
 <p>The <code>breakpoint-down($key, $breakpoints)</code> mixin fits the job. It creates a media
 query enabled for screen sizes smaller than the upper bound of the provided
 breakpoint key.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;break&#39;</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
 
 <span class="nc">.grid</span> <span class="p">{</span>
   <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span> <span class="nt">1fr</span><span class="p">;</span>
