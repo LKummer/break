@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Getting Started</title>
+    
+
+
+<link rel="stylesheet" href="/break/main.css">
+
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Getting Started",
+    "author": {
+        "@type": "Person",
+        "name": "Break Contributors"
+    },
+    "wordCount":  266 ,
+    "isAccessibleForFree": "true",
+    "license": "#",
+    "description": "Quick guide to get you started."
+}
+</script>
+
+    
+
+<style>
+:root {
+    --color-accent-400: hsl(170, 70%, 55%);
+    --color-accent-500: hsl(170, 80%, 60%);
+    --color-accent-600: hsl(170, 83%, 62%);
+    --color-background-100: hsl(216, 10%, 12%);
+    --color-background-200: hsl(216, 10%, 20%);
+    --color-background-900: hsl(216, 10%, 15%);
+    --color-highlight-background: hsl(240, 13%, 14%);
+    --color-highlight-comment: hsl(250, 25%, 55%);
+    --color-highlight-literal: hsl(250, 80%, 70%);
+    --color-highlight-operator: hsl(330, 95%, 75%);
+    --color-highlight-special: hsl(180, 75%, 55%);
+    --color-highlight-text: hsl(240, 35%, 99%);
+    --color-primary-400: hsl(340, 85%, 70%);
+    --color-primary-500: hsl(340, 95%, 75%);
+    --color-primary-600: hsl(340, 98%, 78%);
+    --color-text-100: hsla(0, 0%, 0%, 0.7);
+    --color-text-700: hsla(0, 0%, 100%, 0.65);
+    --color-text-800: hsla(0, 0%, 100%, 0.8);
+    --color-text-900: hsla(0, 0%, 100%, 0.95);
+    }
+</style>
+
+</head>
+
+<body>
+    
+<div>
+    <header class="navbar">
+        <h1 class="navbar-logo">
+            Break SCSS
+        </h1>
+        
+        
+        <span class="navbar-spacer"></span>
+        <nav>
+            <ul class="navbar-navigation">
+                
+                <li>
+                <a href="https://lkummer.github.io/break/" class="navbar-navigation-item">
+                    Home
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://lkummer.github.io/break/guide/" class="navbar-navigation-item">
+                    Guides
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://github.com/LKummer/break" class="navbar-navigation-item">
+                    Github
+                </a>
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </header>
+</div>
+
+<main class="l-single">
+    <aside class="toc l-single-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#downloading-break">Downloading Break</a></li>
+    <li><a href="#importing-break">Importing Break</a></li>
+    <li><a href="#basic-example">Basic Example</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+    <article class="article l-single-article">
+        <nav>
+            <ul class="article-breadcrumbs">
+                <li class="article-breadcrumbs-item">
+                    <a href="https://lkummer.github.io/break/guide">
+                        Guides
+                    </a>
+                </li>
+                <li class="article-breadcrumbs-item">
+                    <a href="https://lkummer.github.io/break/guide#user-guides">
+                        User Guides
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <h1 class="article-title">
+            Getting Started
+        </h1>
+        <section class="article-content">
+            <p>This guide goes through installation and a provides a basic example.</p>
+<h2 id="downloading-break">Downloading Break</h2>
+<p>Break is available on NPM and can be downloaded using NPM and Yarn.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ npm add --save-dev @lkummer/break
+$ yarn add --dev @lkummer/break
+</code></pre></div><p>Note the library is built for libsass. Node binding is available on NPM as
+<code>node-sass</code>.</p>
+<h2 id="importing-break">Importing Break</h2>
+<p>Break can now be imported in SCSS files in your project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;break&#39;</span><span class="p">;</span>
+</code></pre></div><h2 id="basic-example">Basic Example</h2>
+<p>Breakpoints are defined by a map which contains a key for each breakpoint.
+Each breakpoint is a map of <code>upper</code> and <code>lower</code> bounds.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$breakpoints</span><span class="o">:</span> <span class="p">(</span>
+  <span class="s1">&#39;small&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="n">null</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="mi">600</span><span class="kt">px</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s1">&#39;medium&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="mi">601</span><span class="kt">px</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="mi">900</span><span class="kt">px</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s1">&#39;large&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="mi">901</span><span class="kt">px</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="n">null</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>For the best functionality set the lowest and highest bounds as null. This
+ensures no useless media queries are created.</p>
+<p>Note the breakpoint map keys must be named exactly <code>lower</code> and <code>upper</code>.</p>
+<p>Now with the breakpoints defined we can do a small example.
+Say we want a grid layout that switches from a two columns to a single column on
+any screen size smaller than <code>small</code>.</p>
+<p>The <code>breakpoint-down($key, $breakpoints)</code> mixin fits the job. It creates a media
+query enabled for screen sizes smaller than the upper bound of the provided
+breakpoint key.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;break&#39;</span><span class="p">;</span>
+
+<span class="nc">.grid</span> <span class="p">{</span>
+  <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span> <span class="nt">1fr</span><span class="p">;</span>
+
+  <span class="k">@include</span><span class="nd"> breakpoint-down</span><span class="p">(</span><span class="s1">&#39;small&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>The example creates the following CSS output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.grid</span> <span class="p">{</span>
+  <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span> <span class="nt">1fr</span><span class="p">;</span>
+
+  <span class="k">@media</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">600</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Break contains only Sass mixins, meaning no useless code is added to the bundle.</p>
+<p>To learn about all the avaiable mixins,
+<a href="https://lkummer.github.io/break/guide/mixins/">see the mixins guide</a>.</p>
+
+        </section>
+    </article></main>
+    <footer class="footer">
+    <div class="footer-container l-offset l-offset-start">
+        <section class="content">
+            
+            <h1 class="content-title">
+                About Break
+            </h1>
+            
+            
+            <p class="content-text">
+                    After finding myself writing media query mixins for every project, I made a
+    module out of them.
+    Adding thorough unit testing, documentation and linting in the process.
+    
+            </p>
+            
+        </section>
+        
+        <nav>
+            <ul class="lowernav">
+                
+                <li>
+                    <a href="https://lkummer.github.io/break/" class="lowernav-item">
+                        Home
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://lkummer.github.io/break/guide/" class="lowernav-item">
+                        Guides
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LKummer/break" class="lowernav-item">
+                        Github
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </div>
+</footer>
+
+    <script src="/break/main.js"></script>
+</body>
+</html>

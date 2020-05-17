@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Break SCSS</title>
+    <link>https://lkummer.github.io/break/</link>
+    <description>Recent content in Home on Break SCSS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://lkummer.github.io/break/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://lkummer.github.io/break/guide/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lkummer.github.io/break/guide/getting-started/</guid>
+      <description>This guide goes through installation and a provides a basic example.
+Downloading Break Break is available on NPM and can be downloaded using NPM and Yarn.
+$ npm add --save-dev @lkummer/break $ yarn add --dev @lkummer/break Note the library is built for libsass. Node binding is available on NPM as node-sass.
+Importing Break Break can now be imported in SCSS files in your project.
+@import &amp;#39;break&amp;#39;; Basic Example Breakpoints are defined by a map which contains a key for each breakpoint.</description>
+    </item>
+    
+    <item>
+      <title>Mixins</title>
+      <link>https://lkummer.github.io/break/guide/mixins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lkummer.github.io/break/guide/mixins/</guid>
+      <description>Documentation of all the mixins available in Break.
+Media Query Mixins All breakpoint media query mixins use a $breakpoints map. The structure of the map is described in the Getting Started guide.
+The following breakpoint map is used in all of the examples on this page.
+$breakpoints: ( &amp;#39;small&amp;#39;: ( &amp;#39;lower&amp;#39;: null, &amp;#39;upper&amp;#39;: 400px ), &amp;#39;medium&amp;#39;: ( &amp;#39;lower&amp;#39;: 401px, &amp;#39;upper&amp;#39;: 800px ), &amp;#39;large&amp;#39;: ( &amp;#39;lower&amp;#39;: 801px, &amp;#39;upper&amp;#39;: 1200px ), &amp;#39;huge&amp;#39;: ( &amp;#39;lower&amp;#39;: 1201px, &amp;#39;upper&amp;#39;: null ) ); breakpoint($lower-key, $upper-key, $breakpoints) Places a @content block inside a media query enabled beteen the selected breakpoints.</description>
+    </item>
+    
+  </channel>
+</rss>

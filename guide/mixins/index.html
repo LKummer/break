@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Mixins</title>
+    
+
+
+<link rel="stylesheet" href="/break/main.css">
+
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Mixins",
+    "author": {
+        "@type": "Person",
+        "name": "Break Contributors"
+    },
+    "wordCount":  415 ,
+    "isAccessibleForFree": "true",
+    "license": "#",
+    "description": "Documentation of all the mixins available in the library."
+}
+</script>
+
+    
+
+<style>
+:root {
+    --color-accent-400: hsl(170, 70%, 55%);
+    --color-accent-500: hsl(170, 80%, 60%);
+    --color-accent-600: hsl(170, 83%, 62%);
+    --color-background-100: hsl(216, 10%, 12%);
+    --color-background-200: hsl(216, 10%, 20%);
+    --color-background-900: hsl(216, 10%, 15%);
+    --color-highlight-background: hsl(240, 13%, 14%);
+    --color-highlight-comment: hsl(250, 25%, 55%);
+    --color-highlight-literal: hsl(250, 80%, 70%);
+    --color-highlight-operator: hsl(330, 95%, 75%);
+    --color-highlight-special: hsl(180, 75%, 55%);
+    --color-highlight-text: hsl(240, 35%, 99%);
+    --color-primary-400: hsl(340, 85%, 70%);
+    --color-primary-500: hsl(340, 95%, 75%);
+    --color-primary-600: hsl(340, 98%, 78%);
+    --color-text-100: hsla(0, 0%, 0%, 0.7);
+    --color-text-700: hsla(0, 0%, 100%, 0.65);
+    --color-text-800: hsla(0, 0%, 100%, 0.8);
+    --color-text-900: hsla(0, 0%, 100%, 0.95);
+    }
+</style>
+
+</head>
+
+<body>
+    
+<div>
+    <header class="navbar">
+        <h1 class="navbar-logo">
+            Break SCSS
+        </h1>
+        
+        
+        <span class="navbar-spacer"></span>
+        <nav>
+            <ul class="navbar-navigation">
+                
+                <li>
+                <a href="https://lkummer.github.io/break/" class="navbar-navigation-item">
+                    Home
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://lkummer.github.io/break/guide/" class="navbar-navigation-item">
+                    Guides
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://github.com/LKummer/break" class="navbar-navigation-item">
+                    Github
+                </a>
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </header>
+</div>
+
+<main class="l-single">
+    <aside class="toc l-single-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#media-query-mixins">Media Query Mixins</a>
+      <ul>
+        <li><a href="#breakpointlower-key-upper-key-breakpoints"><code>breakpoint($lower-key, $upper-key, $breakpoints)</code></a></li>
+        <li><a href="#breakpoint-downkey-breakpoints"><code>breakpoint-down($key, $breakpoints)</code></a></li>
+        <li><a href="#breakpoint-upkey-breakpoints"><code>breakpoint-up($key, $breakpoints)</code></a></li>
+        <li><a href="#breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    
+    <article class="article l-single-article">
+        <nav>
+            <ul class="article-breadcrumbs">
+                <li class="article-breadcrumbs-item">
+                    <a href="https://lkummer.github.io/break/guide">
+                        Guides
+                    </a>
+                </li>
+                <li class="article-breadcrumbs-item">
+                    <a href="https://lkummer.github.io/break/guide#user-guides">
+                        User Guides
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <h1 class="article-title">
+            Mixins
+        </h1>
+        <section class="article-content">
+            <p>Documentation of all the mixins available in Break.</p>
+<h2 id="media-query-mixins">Media Query Mixins</h2>
+<p>All breakpoint media query mixins use a <code>$breakpoints</code> map.
+The structure of the map is described
+<a href="https://lkummer.github.io/break/guide/getting-started/#basic-example">in the Getting Started guide</a>.</p>
+<p>The following breakpoint map is used in all of the examples on this page.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$breakpoints</span><span class="o">:</span> <span class="p">(</span>
+  <span class="s1">&#39;small&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="n">null</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="mi">400</span><span class="kt">px</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s1">&#39;medium&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s1">&#39;large&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="mi">801</span><span class="kt">px</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="mi">1200</span><span class="kt">px</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s1">&#39;huge&#39;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="mi">1201</span><span class="kt">px</span><span class="o">,</span>
+    <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="n">null</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><h3 id="breakpointlower-key-upper-key-breakpoints"><code>breakpoint($lower-key, $upper-key, $breakpoints)</code></h3>
+<p>Places a <code>@content</code> block inside a media query enabled beteen the selected
+breakpoints.</p>
+<p>If one of the bounds is <code>null</code>, no condition is created for that bound. If both
+bounds are null, the <code>@content</code> block is placed directly with no media query at
+all.</p>
+<h4 id="arguments">Arguments</h4>
+<ul>
+<li><code>$lower-key (string)</code>: The <code>min-width</code> of the media query will be the lower
+value of this key in the <code>$breakpoints</code> map.</li>
+<li><code>$upper-key (string)</code>: The <code>max-width</code> of the media query will be the upper
+value of this key in the <code>$breakpoints</code> map.</li>
+<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
+</ul>
+<h4 id="example">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> breakpoint</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="s1">&#39;large&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Yields the following output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">1200</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="breakpoint-downkey-breakpoints"><code>breakpoint-down($key, $breakpoints)</code></h3>
+<p>Places a <code>@content</code> block inside a media query enabled for screens of the
+selected breakpoint size and smaller.</p>
+<h4 id="arguments-1">Arguments</h4>
+<ul>
+<li><code>$key (string)</code>: The <code>max-width</code> of the media query will be the upper value of
+this key in the <code>$breakpoints</code> map.</li>
+<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
+</ul>
+<h4 id="example-1">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> breakpoint-down</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Yields the following output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="breakpoint-upkey-breakpoints"><code>breakpoint-up($key, $breakpoints)</code></h3>
+<p>Places a <code>@content</code> block inside a media query enabled for screens of the
+selected breakpoint size and larger.</p>
+<h4 id="arguments-2">Arguments</h4>
+<ul>
+<li><code>$key (string)</code>: The <code>min-width</code> of the media query will be the lower value of
+this key in the <code>$breakpoints</code> map.</li>
+<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
+</ul>
+<h4 id="example-2">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> breakpoint-up</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Yields the following output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></h3>
+<p>Places a <code>@content</code> block inside a media query enabled for screens sized within
+the selected breakpoint.</p>
+<h4 id="arguments-3">Arguments</h4>
+<ul>
+<li><code>$key (string)</code>: The lower and upper bounds of the media query will be the
+values of this key in the <code>$breakpoints</code> map.</li>
+<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
+</ul>
+<h4 id="example-3">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> breakpoint-only</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$test-breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Yields the following output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+        </section>
+    </article></main>
+    <footer class="footer">
+    <div class="footer-container l-offset l-offset-start">
+        <section class="content">
+            
+            <h1 class="content-title">
+                About Break
+            </h1>
+            
+            
+            <p class="content-text">
+                    After finding myself writing media query mixins for every project, I made a
+    module out of them.
+    Adding thorough unit testing, documentation and linting in the process.
+    
+            </p>
+            
+        </section>
+        
+        <nav>
+            <ul class="lowernav">
+                
+                <li>
+                    <a href="https://lkummer.github.io/break/" class="lowernav-item">
+                        Home
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://lkummer.github.io/break/guide/" class="lowernav-item">
+                        Guides
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LKummer/break" class="lowernav-item">
+                        Github
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </div>
+</footer>
+
+    <script src="/break/main.js"></script>
+</body>
+</html>
