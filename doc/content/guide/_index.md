@@ -1,7 +1,7 @@
 ---
 aliases:
-  - "guides"
-title: "Guides"
+  - 'guides'
+title: 'Guides'
 # Section Configuration:
 menu:
   main:
