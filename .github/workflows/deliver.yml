@@ -34,7 +34,7 @@ jobs:
           node-version: '12.x'
       - name: 'Publish to NPM'
         run: |
-          echo '//registry.npmjs.org/:_authToken=${{ TOKEN }}' > .npmrc
+          echo '//registry.npmjs.org/:_authToken=${TOKEN}' > .npmrc
           npm publish --access public
           rm .npmrc
         env:
