@@ -8,7 +8,7 @@ To get started quickly
 
 # Quick Start Guide
 
-Download from NPM.
+[Break is available on NPM](https://www.npmjs.com/package/@lkummer/break).
 
 ```
 $ npm add -D @lkummer/break
