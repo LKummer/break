@@ -11,8 +11,8 @@ masthead:
     - label: 'Getting Started Guide'
       to: 'guide/getting-started/'
       color: 'accent'
-    - label: 'All Guides'
-      to: 'guide/'
+    - label: 'Available on NPM'
+      href: 'https://www.npmjs.com/package/@lkummer/break'
 introduction:
   cards:
     - title: 'Zero Bloat'
