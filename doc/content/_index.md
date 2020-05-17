@@ -5,8 +5,8 @@ menu:
     weight: 10
 # Section Configuration:
 masthead:
-  title: 'Easy systemized media query breakpoints'
-  subtitle: 'Sass mixins that make systemization of media query breakpoints a breeze'
+  title: 'Every website needs to be responsive'
+  subtitle: 'Write systemized media queries with ease'
   buttons:
     - label: 'Getting Started Guide'
       to: 'guide/getting-started/'
@@ -21,7 +21,7 @@ introduction:
       text: 'This library does not make you download half of NPM'
 bottom:
   title: 'Get Started Now'
-  text: "It's Easy"
+  text: "Available on NPM"
   buttons:
     - label: 'Getting Started Guide'
       to: 'guide/getting-started/'
