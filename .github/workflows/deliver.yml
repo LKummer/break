@@ -34,9 +34,11 @@ jobs:
           node-version: '12.x'
       - name: 'Publish to NPM'
         run: |
-          echo '//registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN}' > .npmrc
+          echo '//registry.npmjs.org/:_authToken=${{ TOKEN }}' > .npmrc
           npm publish --access public
           rm .npmrc
+        env:
+          TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 'Create Github release'
         uses: actions/create-release@v1
         env:
