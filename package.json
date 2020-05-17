@@ -1,6 +1,6 @@
 {
   "name": "@lkummer/break",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Sass mixins for systemized media queries",
   "author": "Lior Kummer",
   "license": "MIT",
