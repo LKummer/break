@@ -24,7 +24,7 @@ Note the library is built for libsass. Node binding is available on NPM as
 Break can now be imported in SCSS files in your project.
 
 ```scss
-@import 'break';
+@import '@lkummer/break';
 ```
 
 ## Basic Example
@@ -63,7 +63,7 @@ query enabled for screen sizes smaller than the upper bound of the provided
 breakpoint key.
 
 ```scss
-@import 'break';
+@import '@lkummer/break';
 
 .grid {
   grid-template-columns: 1fr 1fr;

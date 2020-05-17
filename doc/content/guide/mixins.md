@@ -56,6 +56,8 @@ all.
 #### Example
 
 ```scss
+@import '@lkummer/break';
+
 .element {
   @include breakpoint('medium', 'large', $breakpoints) {
     background: red;
@@ -87,6 +89,8 @@ selected breakpoint size and smaller.
 #### Example
 
 ```scss
+@import '@lkummer/break';
+
 .element {
   @include breakpoint-down('medium', $breakpoints) {
     background: red;
@@ -118,6 +122,8 @@ selected breakpoint size and larger.
 #### Example
 
 ```scss
+@import '@lkummer/break';
+
 .element {
   @include breakpoint-up('medium', $breakpoints) {
     background: red;
@@ -149,6 +155,8 @@ the selected breakpoint.
 #### Example
 
 ```scss
+@import '@lkummer/break';
+
 .element {
   @include breakpoint-only('medium', $test-breakpoints) {
     background: red;
