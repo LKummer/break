@@ -1,10 +1,10 @@
-Break is a library of Sass mixins that ease creation of systemized media query
+Break is a library of Sass mixins that ease the creation of systemized media query
 breakpoints.
 
 For more information [see the documentation](https://lkummer.github.io/break/).
 
 To get started quickly
-[see the Getting Started guide](https://lkummer.github.io/break/guide/getting-started/).
+[read the Getting Started guide](https://lkummer.github.io/break/guide/getting-started/).
 
 # Quick Start Guide
 
@@ -15,7 +15,8 @@ $ npm add -D @lkummer/break
 $ yarn add --dev @lkummer/break
 ```
 
-With the module installed, systemized breakpoints can be created and used.
+With the module installed, systemized breakpoints can be defined and media queries
+can be created with mixins.
 
 ```scss
 @import '@lkummer/break';
@@ -40,7 +41,7 @@ $breakpoints: (
 }
 ```
 
-Once compiled the example will output:
+Yielding the following output once processed.
 
 ```css
 .element {
@@ -50,7 +51,7 @@ Once compiled the example will output:
 }
 ```
 
-Read [the detailed Getting Started guide](https://lkummer.github.io/break/guide/getting-started/).
+[Read the Getting Started guide](https://lkummer.github.io/break/guide/getting-started/).
 
 # Development Guide
 
@@ -73,7 +74,7 @@ $ yarn run test
 
 ## Linting
 
-Linting can be done using the `lint` script.
+Linting can be run using the `lint` script.
 
 ```
 $ yarn run lint
@@ -90,7 +91,7 @@ $ yarn run format
 
 ## Documentation
 
-The `doc` script builds the documentation to `dist/doc`.
+The `doc` script builds the documentation in the `dist/doc` directory.
 
 ```
 $ yarn run doc
