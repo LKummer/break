@@ -9,7 +9,8 @@ This guide goes through installation and a provides a basic example.
 
 ## Downloading Break
 
-Break is available on NPM and can be downloaded using NPM and Yarn.
+Break is [available on NPM](https://www.npmjs.com/package/@lkummer/break)
+and can be downloaded using NPM and Yarn.
 
 ```shell
 $ npm add --save-dev @lkummer/break
@@ -28,6 +29,10 @@ Break can now be imported in SCSS files in your project.
 ```
 
 ## Basic Example
+
+With everything up and running we can have a look at a quick example.
+
+### Defining Breakpoints
 
 Breakpoints are defined by a map which contains a key for each breakpoint.
 Each breakpoint is a map of `upper` and `lower` bounds.
@@ -49,14 +54,16 @@ $breakpoints: (
 );
 ```
 
-For the best functionality set the lowest and highest bounds as null. This
-ensures no useless media queries are created.
+Ensure to set the lowest and highest bounds to null. This helps break create
+minimal media queries.
 
 Note the breakpoint map keys must be named exactly `lower` and `upper`.
 
+### Creating Media Queries
+
 Now with the breakpoints defined we can do a small example.
-Say we want a grid layout that switches from a two columns to a single column on
-any screen size smaller than `small`.
+Say we want a grid layout that switches from displaying two columns to displaying
+a single column on any screen size smaller than `small`.
 
 The `breakpoint-down($key, $breakpoints)` mixin fits the job. It creates a media
 query enabled for screen sizes smaller than the upper bound of the provided
@@ -86,7 +93,7 @@ The example creates the following CSS output.
 }
 ```
 
-Break contains only Sass mixins, meaning no useless code is added to the bundle.
+Break only provides Sass mixins so the output only contains what you use.
 
-To learn about all the avaiable mixins,
+To learn about all mixins available in Break
 [see the mixins guide]({{< ref "mixins.md" >}}).
