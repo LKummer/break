@@ -13,7 +13,7 @@ All breakpoint media query mixins use a `$breakpoints` map.
 The structure of the map is described
 [in the Getting Started guide]({{< ref "getting-started.md#basic-example" >}}).
 
-The following breakpoint map is used in all of the examples on this page.
+The following breakpoints map is used in all of the examples on this page.
 
 ```scss
 $breakpoints: (
@@ -38,7 +38,7 @@ $breakpoints: (
 
 ### `breakpoint($lower-key, $upper-key, $breakpoints)`
 
-Places a `@content` block inside a media query enabled beteen the selected
+Places a `@content` block inside a media query enabled between the selected
 breakpoints.
 
 If one of the bounds is `null`, no condition is created for that bound. If both
@@ -75,10 +75,49 @@ Yields the following output.
 }
 ```
 
+### `breakpoint-only($key, $breakpoints)`
+
+Places a `@content` block inside a media query enabled for screens sized within
+the selected breakpoint.
+
+Uses [`breakpoint()`](#breakpointlower-key-upper-key-breakpoints)
+under the hood.
+
+#### Arguments
+
+- `$key (string)`: The lower and upper bounds of the media query will be the
+  values of this key in the `$breakpoints` map.
+- `$breakpoints (map)`: Map of screen breakpoints.
+
+#### Example
+
+```scss
+@import '@lkummer/break';
+
+.element {
+  @include breakpoint-only('medium', $test-breakpoints) {
+    background: red;
+  }
+}
+```
+
+Yields the following output.
+
+```scss
+.element {
+  @media (min-width: 401px) and (max-width: 800px) {
+    background: red;
+  }
+}
+```
+
 ### `breakpoint-down($key, $breakpoints)`
 
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and smaller.
+
+If the `upper` bound of the selected breakpoint is `null`, the `@content` block
+will be placed directly with no media query.
 
 #### Arguments
 
@@ -113,6 +152,9 @@ Yields the following output.
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and larger.
 
+If the `lower` bound of the selected breakpoint is `null`, the `@content` block
+will be placed directly with no media query.
+
 #### Arguments
 
 - `$key (string)`: The `min-width` of the media query will be the lower value of
@@ -136,39 +178,6 @@ Yields the following output.
 ```scss
 .element {
   @media (min-width: 401px) {
-    background: red;
-  }
-}
-```
-
-### `breakpoint-only($key, $breakpoints)`
-
-Places a `@content` block inside a media query enabled for screens sized within
-the selected breakpoint.
-
-#### Arguments
-
-- `$key (string)`: The lower and upper bounds of the media query will be the
-  values of this key in the `$breakpoints` map.
-- `$breakpoints (map)`: Map of screen breakpoints.
-
-#### Example
-
-```scss
-@import '@lkummer/break';
-
-.element {
-  @include breakpoint-only('medium', $test-breakpoints) {
-    background: red;
-  }
-}
-```
-
-Yields the following output.
-
-```scss
-.element {
-  @media (min-width: 401px) and (max-width: 800px) {
     background: red;
   }
 }
