@@ -16,7 +16,7 @@ bottom:
   title: 'Need More Help?'
   text: 'See the Github Issues'
   buttons:
-    - label: 'Bottom Button'
+    - label: 'Github Issues'
       href: 'https://github.com/LKummer/break/issues'
       color: 'accent'
 ---
