@@ -19,7 +19,7 @@
         "@type": "Person",
         "name": "Break Contributors"
     },
-    "wordCount":  423 ,
+    "wordCount":  470 ,
     "isAccessibleForFree": "true",
     "license": "#",
     "description": "Documentation of all the mixins available in the library."
@@ -45,12 +45,14 @@
     --color-primary-400: hsl(340, 85%, 70%);
     --color-primary-500: hsl(340, 95%, 75%);
     --color-primary-600: hsl(340, 98%, 78%);
-    --color-text-100: hsla(0, 0%, 0%, 0.7);
+    --color-text-100: hsla(0, 0%, 100%, 0.95);
+    --color-text-200: hsla(0, 0%, 0%, 0.7);
     --color-text-700: hsla(0, 0%, 100%, 0.65);
     --color-text-800: hsla(0, 0%, 100%, 0.8);
     --color-text-900: hsla(0, 0%, 100%, 0.95);
     }
 </style>
+
 
 </head>
 
@@ -98,9 +100,9 @@
     <li><a href="#media-query-mixins">Media Query Mixins</a>
       <ul>
         <li><a href="#breakpointlower-key-upper-key-breakpoints"><code>breakpoint($lower-key, $upper-key, $breakpoints)</code></a></li>
+        <li><a href="#breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></a></li>
         <li><a href="#breakpoint-downkey-breakpoints"><code>breakpoint-down($key, $breakpoints)</code></a></li>
         <li><a href="#breakpoint-upkey-breakpoints"><code>breakpoint-up($key, $breakpoints)</code></a></li>
-        <li><a href="#breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></a></li>
       </ul>
     </li>
   </ul>
@@ -131,7 +133,7 @@
 <p>All breakpoint media query mixins use a <code>$breakpoints</code> map.
 The structure of the map is described
 <a href="https://lkummer.github.io/break/guide/getting-started/#basic-example">in the Getting Started guide</a>.</p>
-<p>The following breakpoint map is used in all of the examples on this page.</p>
+<p>The following breakpoints map is used in all of the examples on this page.</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$breakpoints</span><span class="o">:</span> <span class="p">(</span>
   <span class="s1">&#39;small&#39;</span><span class="o">:</span> <span class="p">(</span>
     <span class="s1">&#39;lower&#39;</span><span class="o">:</span> <span class="n">null</span><span class="o">,</span>
@@ -151,7 +153,7 @@ The structure of the map is described
   <span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div><h3 id="breakpointlower-key-upper-key-breakpoints"><code>breakpoint($lower-key, $upper-key, $breakpoints)</code></h3>
-<p>Places a <code>@content</code> block inside a media query enabled beteen the selected
+<p>Places a <code>@content</code> block inside a media query enabled between the selected
 breakpoints.</p>
 <p>If one of the bounds is <code>null</code>, no condition is created for that bound. If both
 bounds are null, the <code>@content</code> block is placed directly with no media query at
@@ -178,16 +180,43 @@ value of this key in the <code>$breakpoints</code> map.</li>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div><h3 id="breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></h3>
+<p>Places a <code>@content</code> block inside a media query enabled for screens sized within
+the selected breakpoint.</p>
+<p>Uses <a href="#breakpointlower-key-upper-key-breakpoints"><code>breakpoint()</code></a>
+under the hood.</p>
+<h4 id="arguments-1">Arguments</h4>
+<ul>
+<li><code>$key (string)</code>: The lower and upper bounds of the media query will be the
+values of this key in the <code>$breakpoints</code> map.</li>
+<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
+</ul>
+<h4 id="example-1">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
+
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> breakpoint-only</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$test-breakpoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Yields the following output.</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div><h3 id="breakpoint-downkey-breakpoints"><code>breakpoint-down($key, $breakpoints)</code></h3>
 <p>Places a <code>@content</code> block inside a media query enabled for screens of the
 selected breakpoint size and smaller.</p>
-<h4 id="arguments-1">Arguments</h4>
+<p>If the <code>upper</code> bound of the selected breakpoint is <code>null</code>, the <code>@content</code> block
+will be placed directly with no media query.</p>
+<h4 id="arguments-2">Arguments</h4>
 <ul>
 <li><code>$key (string)</code>: The <code>max-width</code> of the media query will be the upper value of
 this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
-<h4 id="example-1">Example</h4>
+<h4 id="example-2">Example</h4>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
 
 <span class="nc">.element</span> <span class="p">{</span>
@@ -204,13 +233,15 @@ this key in the <code>$breakpoints</code> map.</li>
 </code></pre></div><h3 id="breakpoint-upkey-breakpoints"><code>breakpoint-up($key, $breakpoints)</code></h3>
 <p>Places a <code>@content</code> block inside a media query enabled for screens of the
 selected breakpoint size and larger.</p>
-<h4 id="arguments-2">Arguments</h4>
+<p>If the <code>lower</code> bound of the selected breakpoint is <code>null</code>, the <code>@content</code> block
+will be placed directly with no media query.</p>
+<h4 id="arguments-3">Arguments</h4>
 <ul>
 <li><code>$key (string)</code>: The <code>min-width</code> of the media query will be the lower value of
 this key in the <code>$breakpoints</code> map.</li>
 <li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
 </ul>
-<h4 id="example-2">Example</h4>
+<h4 id="example-3">Example</h4>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
 
 <span class="nc">.element</span> <span class="p">{</span>
@@ -224,35 +255,12 @@ this key in the <code>$breakpoints</code> map.</li>
     <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="breakpoint-onlykey-breakpoints"><code>breakpoint-only($key, $breakpoints)</code></h3>
-<p>Places a <code>@content</code> block inside a media query enabled for screens sized within
-the selected breakpoint.</p>
-<h4 id="arguments-3">Arguments</h4>
-<ul>
-<li><code>$key (string)</code>: The lower and upper bounds of the media query will be the
-values of this key in the <code>$breakpoints</code> map.</li>
-<li><code>$breakpoints (map)</code>: Map of screen breakpoints.</li>
-</ul>
-<h4 id="example-3">Example</h4>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
-
-<span class="nc">.element</span> <span class="p">{</span>
-  <span class="k">@include</span><span class="nd"> breakpoint-only</span><span class="p">(</span><span class="s1">&#39;medium&#39;</span><span class="o">,</span> <span class="nv">$test-breakpoints</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>Yields the following output.</p>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
-  <span class="k">@media</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="mi">401</span><span class="kt">px</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 </code></pre></div>
         </section>
     </article></main>
     <footer class="footer">
     <div class="footer-container l-offset l-offset-start">
-        <section class="content">
+        <section class="content content-dark">
             
             <h1 class="content-title">
                 About Break

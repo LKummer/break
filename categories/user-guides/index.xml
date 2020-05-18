@@ -20,7 +20,7 @@
 Downloading Break Break is available on NPM and can be downloaded using NPM and Yarn.
 $ npm add --save-dev @lkummer/break $ yarn add --dev @lkummer/break Note the library is built for libsass. Node binding is available on NPM as node-sass.
 Importing Break Break can now be imported in SCSS files in your project.
-@import &amp;#39;@lkummer/break&amp;#39;; Basic Example Breakpoints are defined by a map which contains a key for each breakpoint.</description>
+@import &amp;#39;@lkummer/break&amp;#39;; Basic Example With everything up and running we can have a look at a quick example.</description>
     </item>
     
     <item>
@@ -31,8 +31,8 @@ Importing Break Break can now be imported in SCSS files in your project.
       <guid>https://lkummer.github.io/break/guide/mixins/</guid>
       <description>Documentation of all the mixins available in Break.
 Media Query Mixins All breakpoint media query mixins use a $breakpoints map. The structure of the map is described in the Getting Started guide.
-The following breakpoint map is used in all of the examples on this page.
-$breakpoints: ( &amp;#39;small&amp;#39;: ( &amp;#39;lower&amp;#39;: null, &amp;#39;upper&amp;#39;: 400px ), &amp;#39;medium&amp;#39;: ( &amp;#39;lower&amp;#39;: 401px, &amp;#39;upper&amp;#39;: 800px ), &amp;#39;large&amp;#39;: ( &amp;#39;lower&amp;#39;: 801px, &amp;#39;upper&amp;#39;: 1200px ), &amp;#39;huge&amp;#39;: ( &amp;#39;lower&amp;#39;: 1201px, &amp;#39;upper&amp;#39;: null ) ); breakpoint($lower-key, $upper-key, $breakpoints) Places a @content block inside a media query enabled beteen the selected breakpoints.</description>
+The following breakpoints map is used in all of the examples on this page.
+$breakpoints: ( &amp;#39;small&amp;#39;: ( &amp;#39;lower&amp;#39;: null, &amp;#39;upper&amp;#39;: 400px ), &amp;#39;medium&amp;#39;: ( &amp;#39;lower&amp;#39;: 401px, &amp;#39;upper&amp;#39;: 800px ), &amp;#39;large&amp;#39;: ( &amp;#39;lower&amp;#39;: 801px, &amp;#39;upper&amp;#39;: 1200px ), &amp;#39;huge&amp;#39;: ( &amp;#39;lower&amp;#39;: 1201px, &amp;#39;upper&amp;#39;: null ) ); breakpoint($lower-key, $upper-key, $breakpoints) Places a @content block inside a media query enabled between the selected breakpoints.</description>
     </item>
     
   </channel>

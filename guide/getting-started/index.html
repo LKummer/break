@@ -19,7 +19,7 @@
         "@type": "Person",
         "name": "Break Contributors"
     },
-    "wordCount":  266 ,
+    "wordCount":  283 ,
     "isAccessibleForFree": "true",
     "license": "#",
     "description": "Quick guide to get you started."
@@ -45,12 +45,14 @@
     --color-primary-400: hsl(340, 85%, 70%);
     --color-primary-500: hsl(340, 95%, 75%);
     --color-primary-600: hsl(340, 98%, 78%);
-    --color-text-100: hsla(0, 0%, 0%, 0.7);
+    --color-text-100: hsla(0, 0%, 100%, 0.95);
+    --color-text-200: hsla(0, 0%, 0%, 0.7);
     --color-text-700: hsla(0, 0%, 100%, 0.65);
     --color-text-800: hsla(0, 0%, 100%, 0.8);
     --color-text-900: hsla(0, 0%, 100%, 0.95);
     }
 </style>
+
 
 </head>
 
@@ -97,7 +99,12 @@
   <ul>
     <li><a href="#downloading-break">Downloading Break</a></li>
     <li><a href="#importing-break">Importing Break</a></li>
-    <li><a href="#basic-example">Basic Example</a></li>
+    <li><a href="#basic-example">Basic Example</a>
+      <ul>
+        <li><a href="#defining-breakpoints">Defining Breakpoints</a></li>
+        <li><a href="#creating-media-queries">Creating Media Queries</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </aside>
@@ -123,7 +130,8 @@
         <section class="article-content">
             <p>This guide goes through installation and a provides a basic example.</p>
 <h2 id="downloading-break">Downloading Break</h2>
-<p>Break is available on NPM and can be downloaded using NPM and Yarn.</p>
+<p>Break is <a href="https://www.npmjs.com/package/@lkummer/break">available on NPM</a>
+and can be downloaded using NPM and Yarn.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ npm add --save-dev @lkummer/break
 $ yarn add --dev @lkummer/break
 </code></pre></div><p>Note the library is built for libsass. Node binding is available on NPM as
@@ -132,6 +140,8 @@ $ yarn add --dev @lkummer/break
 <p>Break can now be imported in SCSS files in your project.</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s1">&#39;@lkummer/break&#39;</span><span class="p">;</span>
 </code></pre></div><h2 id="basic-example">Basic Example</h2>
+<p>With everything up and running we can have a look at a quick example.</p>
+<h3 id="defining-breakpoints">Defining Breakpoints</h3>
 <p>Breakpoints are defined by a map which contains a key for each breakpoint.
 Each breakpoint is a map of <code>upper</code> and <code>lower</code> bounds.</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$breakpoints</span><span class="o">:</span> <span class="p">(</span>
@@ -148,12 +158,13 @@ Each breakpoint is a map of <code>upper</code> and <code>lower</code> bounds.</p
     <span class="s1">&#39;upper&#39;</span><span class="o">:</span> <span class="n">null</span>
   <span class="p">)</span>
 <span class="p">);</span>
-</code></pre></div><p>For the best functionality set the lowest and highest bounds as null. This
-ensures no useless media queries are created.</p>
+</code></pre></div><p>Ensure to set the lowest and highest bounds to null. This helps break create
+minimal media queries.</p>
 <p>Note the breakpoint map keys must be named exactly <code>lower</code> and <code>upper</code>.</p>
+<h3 id="creating-media-queries">Creating Media Queries</h3>
 <p>Now with the breakpoints defined we can do a small example.
-Say we want a grid layout that switches from a two columns to a single column on
-any screen size smaller than <code>small</code>.</p>
+Say we want a grid layout that switches from displaying two columns to displaying
+a single column on any screen size smaller than <code>small</code>.</p>
 <p>The <code>breakpoint-down($key, $breakpoints)</code> mixin fits the job. It creates a media
 query enabled for screen sizes smaller than the upper bound of the provided
 breakpoint key.</p>
@@ -174,15 +185,15 @@ breakpoint key.</p>
     <span class="nt">grid-template-columns</span><span class="nd">:</span> <span class="nt">1fr</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><p>Break contains only Sass mixins, meaning no useless code is added to the bundle.</p>
-<p>To learn about all the avaiable mixins,
+</code></pre></div><p>Break only provides Sass mixins so the output only contains what you use.</p>
+<p>To learn about all mixins available in Break
 <a href="https://lkummer.github.io/break/guide/mixins/">see the mixins guide</a>.</p>
 
         </section>
     </article></main>
     <footer class="footer">
     <div class="footer-container l-offset l-offset-start">
-        <section class="content">
+        <section class="content content-dark">
             
             <h1 class="content-title">
                 About Break
