@@ -29,7 +29,7 @@ describe('Assertions', () => {
       it('Throws when both bounds are not present', () => {
         const data = `
 @import 'src/asserts';
-@include -break-assert-breakpoint-bounds(())`;
+@include -break-assert-breakpoint-bounds(());`;
         assert.throws(() => {
           sass.renderSync({ data });
         });
@@ -41,9 +41,9 @@ describe('Assertions', () => {
         const data = `
 @import 'src/asserts';
 @include -break-assert-content;`;
-      });
-      assert.throws(() => {
-        sass.renderSync({ data });
+        assert.throws(() => {
+          sass.renderSync({ data });
+        });
       });
     });
   });
