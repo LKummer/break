@@ -1,0 +1,54 @@
+@import 'utilities';
+
+// Media query enabled up to the upper bound of the breakpoint.
+@mixin breakpoint-down($key, $breakpoints) {
+  $upper: upper-breakpoint($key, $breakpoints);
+  @if $upper {
+    @media (max-width: $upper) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled over the lower bound of the breakpoint.
+@mixin breakpoint-up($key, $breakpoints) {
+  $lower: lower-breakpoint($key, $breakpoints);
+  @if $lower {
+    @media (min-width: $lower) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled between the lower bound of the lower breakpoint and the
+// upper bound of the upper breakpoint.
+@mixin breakpoint($lower-key, $upper-key, $breakpoints) {
+  $lower: lower-breakpoint($lower-key, $breakpoints);
+  $upper: upper-breakpoint($upper-key, $breakpoints);
+  @if $lower and $upper {
+    @media (min-width: $lower) and (max-width: $upper) {
+      @content;
+    }
+  } @else if $lower {
+    @include breakpoint-up($lower-key, $breakpoints) {
+      @content;
+    }
+  } @else if $upper {
+    @include breakpoint-down($upper-key, $breakpoints) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query enabled between the bounds of a single breakpoint.
+@mixin breakpoint-only($key, $breakpoints) {
+  @include breakpoint($key, $key, $breakpoints) {
+    @content;
+  }
+}

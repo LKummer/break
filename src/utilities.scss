@@ -1,0 +1,44 @@
+// Converts a map of lower breakpoints to a breakpoints map usable by other
+// mixins.
+// Converts from ('small': none, 'large': 800px) to:
+// (
+//   'small': ('lower': none, 'upper': 800px),
+//   'large': ('lower': 800px, 'upper': none)
+// )
+@function create-breakpoints($lower-breakpoints) {
+  $length: length($lower-breakpoints);
+  $values: map-values($lower-breakpoints);
+  // The last breakpoint is handled first, as it is a special case.
+  $last-key: nth(nth($lower-breakpoints, $length), 1);
+  $last: nth($values, length($values));
+  $result: (
+    $last-key: (
+      'lower': $last,
+      'upper': null
+    )
+  );
+  // The loop does not iterate over the last breakpoint.
+  @for $index from $length - 1 through 1 {
+    $current-key: nth(nth($lower-breakpoints, $index), 1);
+    $current: nth($values, $index);
+    $next: nth($values, $index + 1);
+    $result: map-merge(
+      (
+        $current-key: (
+          'lower': $current,
+          'upper': $next
+        )
+      ),
+      $result
+    );
+  }
+  @return $result;
+}
+
+@function lower-breakpoint($key, $breakpoints) {
+  @return map-get(map-get($breakpoints, $key), 'lower');
+}
+
+@function upper-breakpoint($key, $breakpoints) {
+  @return map-get(map-get($breakpoints, $key), 'upper');
+}

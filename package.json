@@ -25,6 +25,8 @@
   },
   "files": [
     "_index.scss",
-    "src/break.scss"
+    "src/break.scss",
+    "src/mixins.scss",
+    "src/utilities.scss"
   ]
 }
