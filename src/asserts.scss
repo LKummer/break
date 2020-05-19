@@ -1,0 +1,24 @@
+@mixin -break-assert-key-exists($key, $breakpoints) {
+  @if (not map-has-key($breakpoints, $key)) {
+    @error "Breakpoint #{$key} does not exist.";
+  }
+}
+
+@mixin -break-assert-breakpoint-bounds($breakpoint) {
+  @if (
+    (not map-has-key($breakpoint, 'lower')) and
+      (not map-has-key($breakpoint, 'upper'))
+  ) {
+    @error "Breakpoint must have lower, upper or both properties.";
+  }
+}
+
+@mixin -break-assert-content() {
+  $content: content-exists();
+  @if (not $content) {
+    @error "Content block is required. Pass the mixin a content block.";
+    .error {
+      @content;
+    }
+  }
+}
