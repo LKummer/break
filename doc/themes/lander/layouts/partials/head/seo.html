@@ -1,3 +1,8 @@
+{{ with .Description }}
+<meta name="description" content="{{ . }}">
+{{ else }}
+<meta name="description" content="{{ .Site.Params.seo.description }}">
+{{ end }}
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
