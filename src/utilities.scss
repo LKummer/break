@@ -5,7 +5,7 @@
 //   'small': ('lower': none, 'upper': 800px),
 //   'large': ('lower': 800px, 'upper': none)
 // )
-@function create-breakpoints($lower-breakpoints) {
+@function -break-create-breakpoints($lower-breakpoints) {
   $length: length($lower-breakpoints);
   $values: map-values($lower-breakpoints);
   // The last breakpoint is handled first, as it is a special case.
@@ -35,10 +35,10 @@
   @return $result;
 }
 
-@function lower-breakpoint($key, $breakpoints) {
+@function -break-lower-breakpoint($key, $breakpoints) {
   @return map-get(map-get($breakpoints, $key), 'lower');
 }
 
-@function upper-breakpoint($key, $breakpoints) {
+@function -break-upper-breakpoint($key, $breakpoints) {
   @return map-get(map-get($breakpoints, $key), 'upper');
 }

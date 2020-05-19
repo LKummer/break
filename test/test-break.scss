@@ -4,7 +4,7 @@
 
 @include describe('Breakpoint map conversion') {
   @include it('Converts to the correct structure') {
-    $breakpoints: create-breakpoints(
+    $breakpoints: -break-create-breakpoints(
       (
         'small': null,
         'medium': 400px,

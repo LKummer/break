@@ -2,7 +2,7 @@
 
 // Media query enabled up to the upper bound of the breakpoint.
 @mixin breakpoint-down($key, $breakpoints) {
-  $upper: upper-breakpoint($key, $breakpoints);
+  $upper: -break-upper-breakpoint($key, $breakpoints);
   @if $upper {
     @media (max-width: $upper) {
       @content;
@@ -14,7 +14,7 @@
 
 // Media query enabled over the lower bound of the breakpoint.
 @mixin breakpoint-up($key, $breakpoints) {
-  $lower: lower-breakpoint($key, $breakpoints);
+  $lower: -break-lower-breakpoint($key, $breakpoints);
   @if $lower {
     @media (min-width: $lower) {
       @content;
@@ -27,8 +27,8 @@
 // Media query enabled between the lower bound of the lower breakpoint and the
 // upper bound of the upper breakpoint.
 @mixin breakpoint($lower-key, $upper-key, $breakpoints) {
-  $lower: lower-breakpoint($lower-key, $breakpoints);
-  $upper: upper-breakpoint($upper-key, $breakpoints);
+  $lower: -break-lower-breakpoint($lower-key, $breakpoints);
+  $upper: -break-upper-breakpoint($upper-key, $breakpoints);
   @if $lower and $upper {
     @media (min-width: $lower) and (max-width: $upper) {
       @content;
