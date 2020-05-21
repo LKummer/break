@@ -5,7 +5,15 @@ categories:
   - 'User Guides'
 ---
 
-This guide goes through installation and a provides a basic example.
+This guide goes through installation and a basic example.
+
+It is assumed you are already familiar with
+[CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
+If not, check out
+[the beginner's guide on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries).
+
+Break helps create systemized width breakpoints for media queries. Enabling a
+consistent responsive experience across the whole website.
 
 ## Downloading Break
 
