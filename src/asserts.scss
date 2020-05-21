@@ -21,6 +21,9 @@
   $content: content-exists();
   @if (not $content) {
     @error "Content block is required. Pass the mixin a content block.";
+    // The @content needs to be used for the mixin to require it. A @content
+    // block must be placed inside a selector, so without a selector Sass
+    // complains.
     .error {
       @content;
     }
