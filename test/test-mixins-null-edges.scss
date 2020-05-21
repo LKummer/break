@@ -31,6 +31,7 @@
 
 $test-breakpoints: (
   'small': (
+    'lower': null,
     'upper': 400px
   ),
   'medium': (
@@ -42,7 +43,8 @@ $test-breakpoints: (
     'upper': 1200px
   ),
   'huge': (
-    'lower': 1200px
+    'lower': 1200px,
+    'upper': null
   )
 );
 
