@@ -34,6 +34,14 @@ $assert: -break-assert-breakpoint-bounds(());`;
           sass.renderSync({ data });
         });
       });
+      it('Throws when breakpoint is not a map', () => {
+        const data = `
+@import 'src/asserts';
+$assert: -break-assert-breakpoint-bounds('Hello');`;
+        assert.throws(() => {
+          sass.renderSync({ data });
+        });
+      });
     });
 
     describe('content', () => {
