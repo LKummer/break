@@ -27,6 +27,7 @@
     "_index.scss",
     "src/break.scss",
     "src/mixins.scss",
-    "src/utilities.scss"
+    "src/utilities.scss",
+    "src/asserts.scss"
   ]
 }
