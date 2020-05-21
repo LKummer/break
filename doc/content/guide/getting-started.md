@@ -40,7 +40,6 @@ Each breakpoint is a map of `upper` and `lower` bounds.
 ```scss
 $breakpoints: (
   'small': (
-    'lower': null,
     'upper': 600px
   ),
   'medium': (
@@ -48,14 +47,13 @@ $breakpoints: (
     'upper': 900px
   ),
   'large': (
-    'lower': 901px,
-    'upper': null
+    'lower': 901px
   )
 );
 ```
 
-Ensure to set the lowest and highest bounds to null. This helps break create
-minimal media queries.
+Leave the lowest and highest bounds unset for the best results. This helps break
+generate minimal media queries.
 
 Note the breakpoint map keys must be named exactly `lower` and `upper`.
 

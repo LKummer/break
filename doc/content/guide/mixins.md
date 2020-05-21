@@ -18,7 +18,6 @@ The following breakpoints map is used in all of the examples on this page.
 ```scss
 $breakpoints: (
   'small': (
-    'lower': null,
     'upper': 400px
   ),
   'medium': (
@@ -30,8 +29,7 @@ $breakpoints: (
     'upper': 1200px
   ),
   'huge': (
-    'lower': 1201px,
-    'upper': null
+    'lower': 1201px
   )
 );
 ```
@@ -41,9 +39,8 @@ $breakpoints: (
 Places a `@content` block inside a media query enabled between the selected
 breakpoints.
 
-If one of the bounds is `null`, no condition is created for that bound. If both
-bounds are null, the `@content` block is placed directly with no media query at
-all.
+If a bound does not exist no query is created for it. If both bounds do not
+exist the `@content` block is placed directly with no media query.
 
 #### Arguments
 
@@ -116,8 +113,8 @@ Yields the following output.
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and smaller.
 
-If the `upper` bound of the selected breakpoint is `null`, the `@content` block
-will be placed directly with no media query.
+If the `upper` bound does not exist the `@content` block is placed directly with
+no media query.
 
 #### Arguments
 
@@ -152,8 +149,8 @@ Yields the following output.
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and larger.
 
-If the `lower` bound of the selected breakpoint is `null`, the `@content` block
-will be placed directly with no media query.
+If the `lower` bound does not exist the `@content` block is placed directly with
+no media query.
 
 #### Arguments
 
