@@ -4,7 +4,7 @@
 
 @include describe('key-exists') {
   @include it('Passes when the key exists in the map') {
-    @include -break-assert-key-exists(
+    $assert: -break-assert-key-exists(
       'key',
       (
         'key': 'hello'
@@ -15,7 +15,7 @@
 
 @include describe('breakpoint-bounds') {
   @include it('Passes when both bounds are present') {
-    @include -break-assert-breakpoint-bounds(
+    $assert: -break-assert-breakpoint-bounds(
       (
         'lower': 200px,
         'upper': 600px
@@ -23,14 +23,14 @@
     );
   }
   @include it('Passes when only lower bound is present') {
-    @include -break-assert-breakpoint-bounds(
+    $assert: -break-assert-breakpoint-bounds(
       (
         'lower': 200px
       )
     );
   }
   @include it('Passes when only upper bound is present') {
-    @include -break-assert-breakpoint-bounds(
+    $assert: -break-assert-breakpoint-bounds(
       (
         'upper': 600px
       )

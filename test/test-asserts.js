@@ -18,7 +18,7 @@ describe('Assertions', () => {
       it('Throws when key does not exist', () => {
         const data = `
 @import 'src/asserts';
-@include -break-assert-key-exists('key', ());`;
+$assert: -break-assert-key-exists('key', ());`;
         assert.throws(() => {
           sass.renderSync({ data });
         });
@@ -29,7 +29,7 @@ describe('Assertions', () => {
       it('Throws when both bounds are not present', () => {
         const data = `
 @import 'src/asserts';
-@include -break-assert-breakpoint-bounds(());`;
+$assert: -break-assert-breakpoint-bounds(());`;
         assert.throws(() => {
           sass.renderSync({ data });
         });
