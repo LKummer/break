@@ -36,9 +36,21 @@
 }
 
 @function -break-lower-breakpoint($key, $breakpoints) {
-  @return map-get(map-get($breakpoints, $key), 'lower');
+  $exists: -break-assert-key-exists($key, $breakpoints);
+  $breakpoint: map-get($breakpoints, $key);
+  $valid: -break-assert-breakpoint-bounds($breakpoint);
+  @if (map-has-key($breakpoint, 'lower')) {
+    @return map-get($breakpoint, 'lower');
+  }
+  @return null;
 }
 
 @function -break-upper-breakpoint($key, $breakpoints) {
-  @return map-get(map-get($breakpoints, $key), 'upper');
+  $exists: -break-assert-key-exists($key, $breakpoints);
+  $breakpoint: map-get($breakpoints, $key);
+  $valid: -break-assert-breakpoint-bounds($breakpoint);
+  @if (map-has-key($breakpoint, 'upper')) {
+    @return map-get($breakpoint, 'upper');
+  }
+  @return null;
 }
