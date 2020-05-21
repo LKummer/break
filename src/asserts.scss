@@ -6,12 +6,14 @@
 }
 
 @function -break-assert-breakpoint-bounds($breakpoint) {
-  @if (not (type-of($breakpoint) == 'map')) {
-    @error "Breakpoint must be a map."
-  } @else if (
-    (not map-has-key($breakpoint, 'lower')) and
-      (not map-has-key($breakpoint, 'upper'))
-  ) {
+  @if (not(type-of($breakpoint) == 'map')) {
+    @error "Breakpoint must be a map.";
+  } @else if
+    (
+      (not map-has-key($breakpoint, 'lower')) and
+        (not map-has-key($breakpoint, 'upper'))
+    )
+  {
     @error "Breakpoint must have lower, upper or both properties.";
   }
   @return true;
