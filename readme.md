@@ -23,12 +23,10 @@ can be created with mixins.
 
 $breakpoints: (
   'small': (
-    'lower': null,
     'upper': 780px
   ),
   'large': (
-    'lower': 781px,
-    'upper': null
+    'lower': 781px
   )
 );
 
