@@ -3,6 +3,9 @@
   "version": "0.2.1",
   "description": "Sass mixins for systemized media queries",
   "author": "Lior Kummer",
+  "homepage": "https://lkummer.github.io/break",
+  "bugs": "https://github.com/LKummer/break/issues",
+  "repository": "github:LKummer/break",
   "license": "MIT",
   "scripts": {
     "test": "mocha",
