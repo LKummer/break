@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started'
-description: 'Quick guide to get you started.'
+description: 'Quick guide to get you started'
 categories:
   - 'User Guides'
 ---
@@ -12,37 +12,45 @@ It is assumed you are already familiar with
 If not, check out
 [the beginner's guide on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries).
 
-Break helps create systemized width breakpoints for media queries. Enabling a
-consistent responsive experience across the whole website.
+Thanks to the advent of modern CSS, it has become very easy to systemize _almost_ anything.
+Almost anything, that is.
+Systemizing media queries is still challenging, as CSS custom properties can not be used within them.
+
+This challenge motivated the creation of Break.
+Enabling consistent responsive experiences across an entire website.
 
 ## Downloading Break
 
-Break is [available on NPM](https://www.npmjs.com/package/@lkummer/break)
-and can be downloaded using NPM and Yarn.
+Break is [available on NPM](https://www.npmjs.com/package/@lkummer/break).
+It can be installed via NPM or Yarn:
 
-```shell
+```s
+# For NPM users:
 $ npm add --save-dev @lkummer/break
+# Or if using Yarn:
 $ yarn add --dev @lkummer/break
 ```
 
-Note the library is built for libsass. Node binding is available on NPM as
-`node-sass`.
+Note the library is built for libsass.
 
 ## Importing Break
 
-Break can now be imported in SCSS files in your project.
+Once isntalled, Break can be imported in your project.
 
 ```scss
 @import '@lkummer/break';
 ```
 
+Note importing this way is only possible when using a bundler that looks up Node
+modules, such as Webpack.
+
 ## Basic Example
 
-With everything up and running we can have a look at a quick example.
+With everything up and running we can try a quick example.
 
 ### Defining Breakpoints
 
-Breakpoints are defined by a map which contains a key for each breakpoint.
+Breakpoints are defined by a map containing a key for each breakpoint.
 Each breakpoint is a map of `upper` and `lower` bounds.
 
 ```scss
@@ -63,16 +71,16 @@ $breakpoints: (
 Leave the lowest and highest bounds unset for the best results. This helps break
 generate minimal media queries.
 
-Note the breakpoint map keys must be named exactly `lower` and `upper`.
+Note the breakpoint map keys must be named _exactly_ `lower` and `upper`.
 
 ### Creating Media Queries
 
-Now with the breakpoints defined we can do a small example.
+With the breakpoints defined we can try out a mixin.
 Say we want a grid layout that switches from displaying two columns to displaying
 a single column on any screen size smaller than `small`.
 
 The `breakpoint-down($key, $breakpoints)` mixin fits the job. It creates a media
-query enabled for screen sizes smaller than the upper bound of the provided
+query **enabled** for screen sizes **smaller** than the upper bound of the provided
 breakpoint key.
 
 ```scss
@@ -87,7 +95,7 @@ breakpoint key.
 }
 ```
 
-The example creates the following CSS output.
+Once processed, the media query is created:
 
 ```scss
 .grid {
@@ -99,7 +107,7 @@ The example creates the following CSS output.
 }
 ```
 
-Break only provides Sass mixins so the output only contains what you use.
+Break only provides Sass mixins to keep the output as minimal as possible.
 
 To learn about all mixins available in Break
 [see the mixins guide]({{< ref "mixins.md" >}}).

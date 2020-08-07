@@ -1,6 +1,6 @@
 ---
 title: 'Mixins'
-description: 'Documentation of all the mixins available in the library.'
+description: 'Documentation of all the mixins available in the library'
 categories:
   - 'User Guides'
 ---

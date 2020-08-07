@@ -10,11 +10,12 @@ pygmentsUseClasses = true
 
 [params]
   [params.footer]
-    title = "About Break"
+    title = "About"
     text = """
-    After finding myself writing media query mixins for every project, I made a
-    module out of them.
-    Adding thorough unit testing, documentation and linting in the process.
+    Systemizing media queries is challenging.
+    Break makes it easy.
+    Originating from a well worn snippet, with testing and documentation added.
+    Break aims to provide a high quality solution to the problem.
     """
   [params.seo]
     category = "Sass"

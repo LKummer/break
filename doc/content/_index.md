@@ -14,13 +14,19 @@ masthead:
     - label: 'Available on NPM'
       href: 'https://www.npmjs.com/package/@lkummer/break'
 introduction:
+  title: 'Making Things Easy'
+  text: >
+    Systemizing media query breakpoints is challenging even with the power of modern CSS.
+    Break makes it easy.
   cards:
-    - title: 'Zero Bloat'
-      text: 'Sass mixins built to generate minimal CSS and make your bundles small'
-    - title: 'Zero Dependencies'
-      text: 'This library does not make you download half of NPM'
+    - title: 'You Do You'
+      text: >
+        Not enforcing any style opinions.
+    - title: 'Build Tiny Bundles'
+      text: >
+        Built to generate tiny CSS output.
 bottom:
-  title: 'Get Started Now'
+  title: 'Try Break Now'
   text: 'Available on NPM'
   buttons:
     - label: 'Getting Started Guide'
