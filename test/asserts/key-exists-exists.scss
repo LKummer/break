@@ -1,0 +1,7 @@
+@import 'src/asserts';
+$assert: -break-assert-key-exists(
+  'key',
+  (
+    'key': 'hello'
+  )
+);

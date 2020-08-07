@@ -1,0 +1,6 @@
+@import 'src/asserts';
+@include -break-assert-content {
+  .element {
+    background: red;
+  }
+}

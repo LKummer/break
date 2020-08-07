@@ -1,57 +1,48 @@
 const assert = require('assert').strict;
-const { join } = require('path');
 
-const sass = require('node-sass');
-const sassTrue = require('sass-true');
+const { sassFile } = require('./utilities');
 
 describe('Assertions', () => {
-  // In passing cases the assertions can be tested using True.
-  describe('Passing Assertions', () => {
-    const passingAssertions = join(__dirname, 'test-asserts.scss');
-    sassTrue.runSass({ file: passingAssertions }, { describe, it });
+  describe('Key Exists', () => {
+    it('Passes when key is valid', () => {
+      sassFile('asserts/key-exists-exists.scss');
+    });
+    it('Throws when the key does not exist', () => {
+      assert.throws(() => {
+        sassFile('asserts/key-exists-no-key.scss');
+      });
+    });
   });
 
-  // True can not test error output, so failing assertions are tested in
-  // isolation.
-  describe('Failing Assertions', () => {
-    describe('key-exists', () => {
-      it('Throws when key does not exist', () => {
-        const data = `
-@import 'src/asserts';
-$assert: -break-assert-key-exists('key', ());`;
-        assert.throws(() => {
-          sass.renderSync({ data });
-        });
+  describe('Breakpoint Bounds', () => {
+    it('Passes when both bounds exist', () => {
+      sassFile('asserts/breakpoint-bounds-both.scss');
+    });
+    it('Passes when only lower bound exists', () => {
+      sassFile('asserts/breakpoint-bounds-lower.scss');
+    });
+    it('Passes when only upper bound exists', () => {
+      sassFile('asserts/breakpoint-bounds-upper.scss');
+    });
+    it('Throws when no bounds exist', () => {
+      assert.throws(() => {
+        sassFile('asserts/breakpoint-bounds-none.scss');
       });
     });
-
-    describe('breakpoint-bounds', () => {
-      it('Throws when both bounds are not present', () => {
-        const data = `
-@import 'src/asserts';
-$assert: -break-assert-breakpoint-bounds(());`;
-        assert.throws(() => {
-          sass.renderSync({ data });
-        });
-      });
-      it('Throws when breakpoint is not a map', () => {
-        const data = `
-@import 'src/asserts';
-$assert: -break-assert-breakpoint-bounds('Hello');`;
-        assert.throws(() => {
-          sass.renderSync({ data });
-        });
+    it('Throws when the type is incorrect', () => {
+      assert.throws(() => {
+        sassFile('asserts/breakpoint-bounds-not-map.scss');
       });
     });
+  });
 
-    describe('content', () => {
-      it('Throws when no @content block is passed', () => {
-        const data = `
-@import 'src/asserts';
-@include -break-assert-content;`;
-        assert.throws(() => {
-          sass.renderSync({ data });
-        });
+  describe('Content', () => {
+    it('Passes when passed @content', () => {
+      sassFile('asserts/content.scss');
+    });
+    it('Throws when there is no @content', () => {
+      assert.throws(() => {
+        sassFile('asserts/content-none.scss');
       });
     });
   });

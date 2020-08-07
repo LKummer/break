@@ -1,0 +1,6 @@
+@import 'src/asserts';
+$assert: -break-assert-breakpoint-bounds(
+  (
+    'lower': 200px
+  )
+);
