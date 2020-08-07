@@ -1,7 +1,7 @@
 ---
 title: 'Home'
 menu:
-  main:
+  footer:
     weight: 10
 # Section Configuration:
 masthead:
