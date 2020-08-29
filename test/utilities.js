@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const { readFileSync } = require('fs');
 
-const sass = require('node-sass');
+const sass = require('sass');
 
 /**
  * Get processed, stripped output from a Sass file.
