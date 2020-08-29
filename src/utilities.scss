@@ -1,4 +1,4 @@
-@import 'asserts';
+@use 'asserts';
 
 // Converts a map of lower breakpoints to a breakpoints map usable by other
 // mixins.
@@ -7,7 +7,7 @@
 //   'small': ('lower': none, 'upper': 800px),
 //   'large': ('lower': 800px, 'upper': none)
 // )
-@function -break-create-breakpoints($lower-breakpoints) {
+@function create-breakpoints($lower-breakpoints) {
   $length: length($lower-breakpoints);
   $values: map-values($lower-breakpoints);
   // The last breakpoint is handled first, as it is a special case.
@@ -37,20 +37,20 @@
   @return $result;
 }
 
-@function -break-lower-breakpoint($key, $breakpoints) {
-  $exists: -break-assert-key-exists($key, $breakpoints);
+@function lower-breakpoint($key, $breakpoints) {
+  $exists: asserts.key-exists($key, $breakpoints);
   $breakpoint: map-get($breakpoints, $key);
-  $valid: -break-assert-breakpoint-bounds($breakpoint);
+  $valid: asserts.breakpoint-bounds($breakpoint);
   @if (map-has-key($breakpoint, 'lower')) {
     @return map-get($breakpoint, 'lower');
   }
   @return null;
 }
 
-@function -break-upper-breakpoint($key, $breakpoints) {
-  $exists: -break-assert-key-exists($key, $breakpoints);
+@function upper-breakpoint($key, $breakpoints) {
+  $exists: asserts.key-exists($key, $breakpoints);
   $breakpoint: map-get($breakpoints, $key);
-  $valid: -break-assert-breakpoint-bounds($breakpoint);
+  $valid: asserts.breakpoint-bounds($breakpoint);
   @if (map-has-key($breakpoint, 'upper')) {
     @return map-get($breakpoint, 'upper');
   }

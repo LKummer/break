@@ -1,11 +1,11 @@
-@function -break-assert-key-exists($key, $breakpoints) {
+@function key-exists($key, $breakpoints) {
   @if (not map-has-key($breakpoints, $key)) {
     @error "Breakpoint #{$key} does not exist.";
   }
   @return true;
 }
 
-@function -break-assert-breakpoint-bounds($breakpoint) {
+@function breakpoint-bounds($breakpoint) {
   @if (not(type-of($breakpoint) == 'map')) {
     @error "Breakpoint must be a map.";
   } @else if
@@ -19,7 +19,7 @@
   @return true;
 }
 
-@mixin -break-assert-content() {
+@mixin content() {
   $content: content-exists();
   @if (not $content) {
     @error "Content block is required. Pass the mixin a content block.";

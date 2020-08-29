@@ -1,4 +1,4 @@
-@import 'src/break';
+@use 'src/break';
 $test-breakpoints: (
   'small': (
     'upper': 400px
@@ -17,7 +17,7 @@ $test-breakpoints: (
 );
 
 .card {
-  @include breakpoint('large', 'huge', $test-breakpoints) {
+  @include break.breakpoint('large', 'huge', $test-breakpoints) {
     background: red;
   }
 }

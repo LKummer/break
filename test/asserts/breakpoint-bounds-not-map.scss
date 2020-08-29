@@ -1,2 +1,2 @@
-@import 'src/asserts';
-$assert: -break-assert-breakpoint-bounds('Hello');
+@use 'src/asserts';
+$assert: asserts.breakpoint-bounds('Hello');

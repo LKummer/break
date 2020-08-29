@@ -1,5 +1,5 @@
-@import 'src/asserts';
-@include -break-assert-content {
+@use 'src/asserts';
+@include asserts.content {
   .element {
     background: red;
   }
