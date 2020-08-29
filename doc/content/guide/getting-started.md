@@ -31,14 +31,14 @@ $ npm add --save-dev @lkummer/break
 $ yarn add --dev @lkummer/break
 ```
 
-Note the library is built for libsass.
+Note the library is built for Dart Sass and uses the module system.
 
 ## Importing Break
 
 Once isntalled, Break can be imported in your project.
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break';
 ```
 
 Note importing this way is only possible when using a bundler that looks up Node
@@ -79,17 +79,17 @@ With the breakpoints defined we can try out a mixin.
 Say we want a grid layout that switches from displaying two columns to displaying
 a single column on any screen size smaller than `small`.
 
-The `breakpoint-down($key, $breakpoints)` mixin fits the job. It creates a media
+The `media-under($key, $breakpoints)` mixin fits the job. It creates a media
 query **enabled** for screen sizes **smaller** than the upper bound of the provided
 breakpoint key.
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break' as break;
 
 .grid {
   grid-template-columns: 1fr 1fr;
 
-  @include breakpoint-down('small', $breakpoints) {
+  @include break.media-under('small', $breakpoints) {
     grid-template-columns: 1fr;
   }
 }

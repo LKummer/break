@@ -1,4 +1,4 @@
-@use 'src/break';
+@use '_index' as break;
 $test-breakpoints: (
   'small': (
     'upper': 400px
@@ -17,7 +17,7 @@ $test-breakpoints: (
 );
 
 .card {
-  @include break.breakpoint('small', 'huge', $test-breakpoints) {
+  @include break.media-between('small', 'huge', $test-breakpoints) {
     background: red;
   }
 }

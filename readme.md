@@ -19,7 +19,7 @@ With the module installed, systemized breakpoints can be defined and media queri
 can be created with mixins.
 
 ```scss
-@import '@lkummer/break';
+@import '@lkummer/break' as break;
 
 $breakpoints: (
   'small': (
@@ -31,8 +31,8 @@ $breakpoints: (
 );
 
 .element {
-  // Media query enabled only on small screens.
-  @include breakpoint-only('small', $breakpoints) {
+  // Media query enabled on small screens and under.
+  @include break.media-under('small', $breakpoints) {
     // @content is placed in the media query.
     background: blue;
   }

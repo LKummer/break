@@ -6,26 +6,29 @@ describe('Mixins', () => {
   describe('Media Under', () => {
     it('Works', () => {
       assert.equal(
-        sassFile('mixins/down.scss'),
-        fileContent('mixins/down.css')
+        sassFile('mixins/under.scss'),
+        fileContent('mixins/under.css')
       );
     });
     it('Omits Unnecessary Queries', () => {
       assert.equal(
-        sassFile('mixins/down-none.scss'),
-        fileContent('mixins/down-none.css')
+        sassFile('mixins/under-none.scss'),
+        fileContent('mixins/under-none.css')
       );
     });
   });
 
   describe('Media Over', () => {
     it('Works', () => {
-      assert.equal(sassFile('mixins/up.scss'), fileContent('mixins/up.css'));
+      assert.equal(
+        sassFile('mixins/over.scss'),
+        fileContent('mixins/over.css')
+      );
     });
     it('Omits Unnecessary Queries', () => {
       assert.equal(
-        sassFile('mixins/up-none.scss'),
-        fileContent('mixins/up-none.css')
+        sassFile('mixins/over-none.scss'),
+        fileContent('mixins/over-none.css')
       );
     });
   });

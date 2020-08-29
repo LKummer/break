@@ -34,7 +34,7 @@ $breakpoints: (
 );
 ```
 
-### `breakpoint($lower-key, $upper-key, $breakpoints)`
+### `media-between($lower-key, $upper-key, $breakpoints)`
 
 Places a `@content` block inside a media query enabled between the selected
 breakpoints.
@@ -53,10 +53,10 @@ exist the `@content` block is placed directly with no media query.
 #### Example
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break' as break;
 
 .element {
-  @include breakpoint('medium', 'large', $breakpoints) {
+  @include break.media-between('medium', 'large', $breakpoints) {
     background: red;
   }
 }
@@ -72,12 +72,12 @@ Yields the following output.
 }
 ```
 
-### `breakpoint-only($key, $breakpoints)`
+### `media-only($key, $breakpoints)`
 
 Places a `@content` block inside a media query enabled for screens sized within
 the selected breakpoint.
 
-Uses [`breakpoint()`](#breakpointlower-key-upper-key-breakpoints)
+Uses [`media-between()`](#media-betweenlower-key-upper-key-breakpoints)
 under the hood.
 
 #### Arguments
@@ -89,10 +89,10 @@ under the hood.
 #### Example
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break' as break;
 
 .element {
-  @include breakpoint-only('medium', $test-breakpoints) {
+  @include break.media-only('medium', $test-breakpoints) {
     background: red;
   }
 }
@@ -108,7 +108,7 @@ Yields the following output.
 }
 ```
 
-### `breakpoint-down($key, $breakpoints)`
+### `media-under($key, $breakpoints)`
 
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and smaller.
@@ -125,10 +125,10 @@ no media query.
 #### Example
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break' as break;
 
 .element {
-  @include breakpoint-down('medium', $breakpoints) {
+  @include break.media-under('medium', $breakpoints) {
     background: red;
   }
 }
@@ -144,7 +144,7 @@ Yields the following output.
 }
 ```
 
-### `breakpoint-up($key, $breakpoints)`
+### `media-over($key, $breakpoints)`
 
 Places a `@content` block inside a media query enabled for screens of the
 selected breakpoint size and larger.
@@ -161,10 +161,10 @@ no media query.
 #### Example
 
 ```scss
-@import '@lkummer/break';
+@use '@lkummer/break' as break;
 
 .element {
-  @include breakpoint-up('medium', $breakpoints) {
+  @include break.media-over('medium', $breakpoints) {
     background: red;
   }
 }
