@@ -8,7 +8,7 @@ categories:
 This guide goes through installation and a basic example.
 
 It is assumed you are already familiar with
-[CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
+[CSS Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
 If not, check out
 [the beginner's guide on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries).
 
@@ -16,8 +16,8 @@ Thanks to the advent of modern CSS, it has become very easy to systemize _almost
 Almost anything, that is.
 Systemizing media queries is still challenging, as CSS custom properties can not be used within them.
 
-This challenge motivated the creation of Break.
-Enabling consistent responsive experiences across an entire website.
+The challenge of creating a consistent responsive experience across an entire
+website has motivated the creation of Break.
 
 ## Downloading Break
 
@@ -30,6 +30,9 @@ $ npm add --save-dev @lkummer/break
 # Or if using Yarn:
 $ yarn add --dev @lkummer/break
 ```
+
+It is recommended to save Break as a development dependency. As a Sass
+library, it is only used at build time.
 
 Note the library is built for Dart Sass and uses the module system.
 
