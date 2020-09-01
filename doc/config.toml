@@ -55,6 +55,39 @@ pygmentsUseClasses = true
     highlight-special = "hsl(170, 75%, 55%)"
     highlight-operator = "hsl(340, 95%, 75%)"
     highlight-literal = "hsl(250, 80%, 70%)"
+  [params.graphics]
+    favicon = "favicon.svg"
+    logo = """
+    <svg class="navbar-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40">
+      <defs>
+        <style>
+          .navbar {
+            --clip-shape: polygon(0 0, 100% 0, 100% 35%, 0 65%);
+            --logo-bg-color: var(--color-primary-400);
+          }
+          .logo {
+            transform: scale(0.7);
+            transform-origin: 0px 18px;
+          }
+          .logo-bg {
+            transition: fill 0.3s ease;
+            fill: var(--logo-bg-color);
+          }
+          .logo-fg {
+            fill: var(--color-accent-400);
+            transition: clip-path 0.3s ease;
+            clip-path: var(--clip-shape);
+          }
+          .navbar-logo-link:hover {
+            --clip-shape: polygon(0 0, 100% 0, 100% 0, 0 0);
+            --logo-bg-color: var(--color-primary-600);
+          }
+        </style>
+      </defs>
+      <path class="logo logo-bg" d="M32,12V8a8,8,0,0,0-8-8H0V40H24a8,8,0,0,0,8-8V28a8,8,0,0,0-8-8,8,8,0,0,0,8-8ZM18.5,34H8V23H18.5a5.5,5.5,0,0,1,0,11Zm0-17H8V6H18.5a5.5,5.5,0,0,1,0,11Z"/>
+      <path class="logo logo-fg" d="M32,12V8a8,8,0,0,0-8-8H0V40H24a8,8,0,0,0,8-8V28a8,8,0,0,0-8-8,8,8,0,0,0,8-8ZM18.5,34H8V23H18.5a5.5,5.5,0,0,1,0,11Zm0-17H8V6H18.5a5.5,5.5,0,0,1,0,11Z"/>
+    </svg>
+    """
 
 [menu]
   [[menu.main]]

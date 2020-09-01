@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40">
+  <defs>
+    <style>
+      .logo-bg {
+        fill: hsl(340, 90%, 60%);
+        transform: scale(0.8);
+        transform-origin: 24px 24px;
+      }
+    </style>
+  </defs>
+  <path class="logo-bg" d="M32,12V8a8,8,0,0,0-8-8H0V40H24a8,8,0,0,0,8-8V28a8,8,0,0,0-8-8,8,8,0,0,0,8-8ZM18.5,34H8V23H18.5a5.5,5.5,0,0,1,0,11Zm0-17H8V6H18.5a5.5,5.5,0,0,1,0,11Z"/>
+</svg>
