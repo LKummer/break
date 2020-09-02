@@ -19,7 +19,7 @@ With the module installed, systemized breakpoints can be defined and media queri
 can be created with mixins.
 
 ```scss
-@import '@lkummer/break' as break;
+@use '@lkummer/break' as break;
 
 $breakpoints: (
   'small': (
