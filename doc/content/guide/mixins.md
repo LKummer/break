@@ -11,7 +11,7 @@ Documentation of all the mixins available in Break.
 
 All breakpoint media query mixins use a `$breakpoints` map.
 The structure of the map is described
-[in the Getting Started guide]({{< ref "getting-started.md#basic-example" >}}).
+[in the Getting Started guide]({{< ref "getting-started.md#defining-breakpoints" >}}).
 
 The following breakpoints map is used in all of the examples on this page.
 

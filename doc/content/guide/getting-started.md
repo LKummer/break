@@ -41,7 +41,7 @@ Note the library is built for Dart Sass and uses the module system.
 Once isntalled, Break can be imported in your project.
 
 ```scss
-@use '@lkummer/break';
+@use '@lkummer/break' as break;
 ```
 
 Note importing this way is only possible when using a bundler that looks up Node
