@@ -16,7 +16,7 @@ masthead:
       color: 'accent'
 bottom:
   title: 'Need More Help?'
-  text: 'See the Github Issues'
+  text: 'See existing issues or get in contact'
   buttons:
     - label: 'Github Issues'
       href: 'https://github.com/LKummer/break/issues'

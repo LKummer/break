@@ -15,7 +15,7 @@ pygmentsUseClasses = true
     Systemizing media queries is challenging.
     Break makes it easy.
     Originating from a well worn snippet, with testing and documentation added.
-    Break aims to provide a high quality solution to the problem.
+    Break aims to provide a high quality solution.
     """
   [params.seo]
     category = "Sass"
