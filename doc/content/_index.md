@@ -17,14 +17,14 @@ introduction:
   title: 'Making Things Easy'
   text: >
     Systemizing media query breakpoints is challenging even with the power of modern CSS.
-    If you feel the struggle, Break is for you.
+    Break makes it easy.
   cards:
     - title: 'Break is Easy'
       text: >
         Get up and running in mere minutes.
     - title: 'Break is Reliable'
       text: >
-        Rely on Break to generate the CSS you expect.
+        Generates the CSS you expect.
 bottom:
   title: 'Give Break a Try'
   text: 'It will only take a couple of minutes'
