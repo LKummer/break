@@ -23,10 +23,10 @@
     "operatingSystem": "Any",
     "downloadUrl": "#",
     "softwareVersion": "0.2.2",
-    "url": "https:\/\/lkummer.github.io\/",
+    "url": "https:\/\/lkummer.github.io\/break\/",
     "isAccessibleForFree": "true",
     "license": "#",
-    "description": "    After finding myself writing media query mixins for every project, I made a\n    module out of them.\n    Adding thorough unit testing, documentation and linting in the process.\n    "
+    "description": "    Systemizing media queries is challenging.\n    Break makes it easy.\n    Originating from a well worn snippet, with testing and documentation added.\n    Break aims to provide a high quality solution.\n    "
 }
 </script>
 
@@ -34,23 +34,32 @@
 
 <style>
 :root {
+    --color-accent-100: hsl(216, 10%, 25%);
+    --color-accent-200: hsl(216, 12%, 21%);
+    --color-accent-300: hsl(216, 12%, 21%);
     --color-accent-400: hsl(170, 70%, 55%);
     --color-accent-500: hsl(170, 80%, 60%);
     --color-accent-600: hsl(170, 83%, 62%);
     --color-background-100: hsl(216, 10%, 12%);
     --color-background-200: hsl(216, 10%, 20%);
+    --color-background-300: hsl(216, 12%, 21%);
+    --color-background-400: hsl(216, 12%, 21%);
     --color-background-900: hsl(216, 10%, 15%);
-    --color-highlight-background: hsl(240, 13%, 14%);
-    --color-highlight-comment: hsl(250, 25%, 55%);
+    --color-highlight-background: hsl(216, 13%, 14%);
+    --color-highlight-comment: hsl(216, 25%, 55%);
+    --color-highlight-inline: hsl(340, 98%, 78%);
     --color-highlight-literal: hsl(250, 80%, 70%);
-    --color-highlight-operator: hsl(330, 95%, 75%);
-    --color-highlight-special: hsl(180, 75%, 55%);
-    --color-highlight-text: hsl(240, 35%, 99%);
+    --color-highlight-operator: hsl(340, 95%, 75%);
+    --color-highlight-special: hsl(170, 75%, 55%);
+    --color-highlight-text: hsl(216, 35%, 99%);
     --color-primary-400: hsl(340, 85%, 70%);
     --color-primary-500: hsl(340, 95%, 75%);
     --color-primary-600: hsl(340, 98%, 78%);
     --color-text-100: hsla(0, 0%, 100%, 0.95);
     --color-text-200: hsla(0, 0%, 0%, 0.7);
+    --color-text-300: hsla(170, 30%, 95%, 0.95);
+    --color-text-400: hsla(170, 30%, 95%, 0.8);
+    --color-text-500: hsla(170, 30%, 95%, 0.65);
     --color-text-700: hsla(0, 0%, 100%, 0.65);
     --color-text-800: hsla(0, 0%, 100%, 0.8);
     --color-text-900: hsla(0, 0%, 100%, 0.95);
@@ -58,27 +67,57 @@
 </style>
 
 
+    
+    <link rel="icon" href="/break/favicon.svg">
+    
 </head>
 
 <body>
     
 <div>
     <header class="navbar">
-        <h1 class="navbar-logo">
-            Break SCSS
-        </h1>
+        <a class="navbar-logo-link" href="https://lkummer.github.io/break/">
+            
+                <svg class="navbar-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40">
+      <defs>
+        <style>
+          .navbar {
+            --clip-shape: polygon(0 0, 100% 0, 100% 35%, 0 65%);
+            --logo-bg-color: var(--color-primary-400);
+          }
+          .logo {
+            transform: scale(0.7);
+            transform-origin: 0px 18px;
+          }
+          .logo-bg {
+            transition: fill 0.3s ease;
+            fill: var(--logo-bg-color);
+          }
+          .logo-fg {
+            fill: var(--color-accent-400);
+            transition: clip-path 0.3s ease;
+            clip-path: var(--clip-shape);
+          }
+          .navbar-logo-link:hover {
+            --clip-shape: polygon(0 0, 100% 0, 100% 0, 0 0);
+            --logo-bg-color: var(--color-primary-600);
+          }
+        </style>
+      </defs>
+      <path class="logo logo-bg" d="M32,12V8a8,8,0,0,0-8-8H0V40H24a8,8,0,0,0,8-8V28a8,8,0,0,0-8-8,8,8,0,0,0,8-8ZM18.5,34H8V23H18.5a5.5,5.5,0,0,1,0,11Zm0-17H8V6H18.5a5.5,5.5,0,0,1,0,11Z"/>
+      <path class="logo logo-fg" d="M32,12V8a8,8,0,0,0-8-8H0V40H24a8,8,0,0,0,8-8V28a8,8,0,0,0-8-8,8,8,0,0,0,8-8ZM18.5,34H8V23H18.5a5.5,5.5,0,0,1,0,11Zm0-17H8V6H18.5a5.5,5.5,0,0,1,0,11Z"/>
+    </svg>
+    
+            
+            <h1 class="navbar-logo-title">
+                Break SCSS
+            </h1>
+        </a>
         
         
         <span class="navbar-spacer"></span>
         <nav>
             <ul class="navbar-navigation">
-                
-                <li>
-                <a href="https://lkummer.github.io/break/" class="navbar-navigation-item
-                navbar-navigation-item-active">
-                    Home
-                </a>
-                </li>
                 
                 <li>
                 <a href="https://lkummer.github.io/break/guide/" class="navbar-navigation-item">
@@ -146,16 +185,35 @@
 <section class="cardsview">
     <div class="cardsview-container">
         
+        <section class="l-offset l-offset-end cardsview-top">
+            
+            <section class="content content-dark l-offset-item-start">
+                <h1 class="content-title">
+                    Making Things Easy
+                </h1>
+            </section>
+            
+            
+            <section class="content content-dark l-offset-item-end">
+                <p class="content-text">
+                    Systemizing media query breakpoints is challenging even with the power of modern CSS. Break makes it easy.
+
+                </p>
+            </section>
+            
+        </section>
+        
         
         <ul class="l-grid">
             
             <li>
                 <section class="card card-centered">
                     <h1 class="card-title">
-                        Zero Bloat
+                        Break is Easy
                     </h1>
                     <p class="card-text">
-                        Sass mixins built to generate minimal CSS and make your bundles small
+                        Get up and running in mere minutes.
+
                     </p>
                 </section>
             </li>
@@ -163,10 +221,11 @@
             <li>
                 <section class="card card-centered">
                     <h1 class="card-title">
-                        Zero Dependencies
+                        Break is Reliable
                     </h1>
                     <p class="card-text">
-                        This library does not make you download half of NPM
+                        Generates the CSS you expect.
+
                     </p>
                 </section>
             </li>
@@ -182,12 +241,12 @@
     <section class="content content-light content-centered">
         
         <h1 class="content-title">
-            Get Started Now
+            Give Break a Try
         </h1>
         
         
         <p class="content-text">
-            Available on NPM
+            It will only take a couple of minutes
         </p>
         
         
@@ -219,14 +278,15 @@
         <section class="content content-dark">
             
             <h1 class="content-title">
-                About Break
+                About
             </h1>
             
             
             <p class="content-text">
-                    After finding myself writing media query mixins for every project, I made a
-    module out of them.
-    Adding thorough unit testing, documentation and linting in the process.
+                    Systemizing media queries is challenging.
+    Break makes it easy.
+    Originating from a well worn snippet, with testing and documentation added.
+    Break aims to provide a high quality solution.
     
             </p>
             
